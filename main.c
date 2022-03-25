@@ -1,67 +1,70 @@
+#include "funcoes.c"
 #include <stdio.h>
 #include <string.h>
 
-int char_to_int (char x)
+
+int subtracao (char a[], int len, int j)
 {
-    int a;
+    int i, sub, s[100];
 
-    a = x - '0';
+    if (j==0)
+    {
+        sub = char_to_int (a[0]);
 
-    return a;
+        for (i = 1; i < len; i++)
+        {
+            if (a[i] != ' ') 
+            {
+                sub = sub - char_to_int (a[i]);
+            }
+        }
+    }
+
+    else 
+    {
+        for (i = j + 1; i < len; i++)
+        {
+            if (a[i] != ' ')
+            {
+                sub = sub - char_to_int (a[i]);
+            }
+        }
+    }
+
+    return sub;
 }
 
-int subtracao (char a[], int len)
-{
-
-}
-
-int soma (char a[], int len)
+int soma (char a[], int len, int j)
 {
     int i, sum = 0;
 
-    for (i = 0; i < len; i++)
+    if (j==0)
     {
-        if (a[i]==' ') i++;
-
-        else
+        for (i = 0; i < len; i++)
         {
-            sum += char_to_int (a[i]);
+            if (a[i] != ' ') sum += char_to_int (a[i]);
+        }
+    }
+
+    else
+    {
+        for (i = j + 1; i < len; i++)
+        {
+            if (a[i] != ' ') sum += char_to_int (a[i]);
         }
     }
 
     return sum;
 }
 
-void print_int_array (int a[], int len)
-{
-    int i;
-
-    for (i=0; i<len; i++)
-    {
-        printf ("%d", a[i]);
-    }
-
-    putchar ('\n');
-}
-
-int char_arrray_len (char a[])
-{
-    int i, len = 0;
-
-    for (i=0; ;i++)
-    {
-        if (a[i] != '\0' || a[i] != ' ') len += 1;
-    }
-}
+// j guarda o indice do ultimo operador
 
 int main ()
 {
     char a[100];
-    int b[100], i, j = 0, len;
+    int b[100], i, j = 0, len, resultado = 0;
 
     fgets (a, 100, stdin);
-
-    puts (a);
 
     len = strlen (a);
 
@@ -71,17 +74,31 @@ int main ()
         {
             int x;
 
-            x = soma (a,i);
+            x = soma (a,i,j);
 
-            b[j] = x;
+            resultado = resultado + x;
 
-            j += 1;
+            j = i;
 
             i ++;
         }
+
+        if (a[i]=='-')
+        {
+            int x;
+
+            x = subtracao (a, i,j);
+
+            if (j==0) resultado = x;
+            else resultado = resultado - x;
+
+            j = i;
+
+            i++;
+        }
     }
 
-    print_int_array (b, j);
+    printf ("%d", resultado);
 
     return 0;
 }
