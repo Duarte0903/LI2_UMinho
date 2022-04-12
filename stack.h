@@ -1,3 +1,9 @@
+/**
+ * @file stack.h
+ * @brief Definicao da stack
+ * 
+ */
+
 #define Max_Stack 1000
 
 typedef struct 

@@ -1,8 +1,14 @@
+/**
+ * @file main.c
+ * @brief Ficheiro main
+ * 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "stack.h"
 
-
+//! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
 int handle (STACK *s, char *token)
 {
     if(notBit (s, token) || xorBit (s, token) || orBit (s, token) || andBit (s, token) || modulo (s, token) || divisao (s, token) || multiplicacao (s, token) || exponencializacao (s, token) || incrementar (s, token) || decrementar (s, token) || add (s, token) || sub (s, token) || val (s, token))
@@ -11,6 +17,7 @@ int handle (STACK *s, char *token)
         return 0;
 }
 
+//! Funcao main. Obtem o input e invoca a funcao handle para devolver o output
 int main ()
 {
     STACK *s = new_stack ();
