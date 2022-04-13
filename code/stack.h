@@ -29,3 +29,9 @@ int decrementar (STACK *s, char *token);
 int sub (STACK *s, char *token);
 int add (STACK *s, char *token);
 int val (STACK *s, char *token);
+
+int troca2Topo (STACK *s, char *token);
+int copiaNesimo (STACK *s, char *token);
+int popG2 (STACK *s, char *token);
+int duplicar (STACK *s, char *token);
+int rodar3 (STACK *s, char *token);
