@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['guiao1_2ec_5',['guiao1.c',['../guiao1_8c.html',1,'']]]
+  ['exponencializacao_6',['exponencializacao',['../guiao1_8c.html#a056357165fff318f4f3c17cc076e9dc1',1,'exponencializacao(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#a056357165fff318f4f3c17cc076e9dc1',1,'exponencializacao(STACK *s, char *token):&#160;guiao1.c']]]
 ];

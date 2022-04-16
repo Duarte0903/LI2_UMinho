@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Calculadora de stack: code/stack.h File Reference</title>
+<title>Calculadora de stack: code/guiao2.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,122 +66,48 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">stack.h File Reference</div>  </div>
+<div class="title">guiao2.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Definicao da stack.  
+<p>Operacoes do guiao 2.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="stack_8h_source.html">stack.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for guiao2.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="stack_8h__dep__incl.png" border="0" usemap="#code_2stack_8hdep" alt=""/></div>
+<div class="center"><img src="guiao2_8c__incl.png" border="0" usemap="#code_2guiao2_8c" alt=""/></div>
 <!-- MAP 0 -->
 </div>
 </div>
-<p><a href="stack_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="guiao2_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSTACK.html">STACK</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:acf00c6a454f3c46989fde702ba8486dd"><td class="memItemLeft" align="right" valign="top"><a id="acf00c6a454f3c46989fde702ba8486dd"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Max_Stack</b>&#160;&#160;&#160;1000</td></tr>
-<tr class="separator:acf00c6a454f3c46989fde702ba8486dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4002d1ff72ad115103ac2daef3200bc5"><td class="memItemLeft" align="right" valign="top"><a id="a4002d1ff72ad115103ac2daef3200bc5"></a>
-<a class="el" href="structSTACK.html">STACK</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a4002d1ff72ad115103ac2daef3200bc5">new_stack</a> ()</td></tr>
-<tr class="memdesc:a4002d1ff72ad115103ac2daef3200bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria uma nova stack. <br /></td></tr>
-<tr class="separator:a4002d1ff72ad115103ac2daef3200bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a713358cdefe18ccdb5a3d702ba362db0"><td class="memItemLeft" align="right" valign="top"><a id="a713358cdefe18ccdb5a3d702ba362db0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a713358cdefe18ccdb5a3d702ba362db0">push</a> (<a class="el" href="structSTACK.html">STACK</a> *s, int elem)</td></tr>
-<tr class="memdesc:a713358cdefe18ccdb5a3d702ba362db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coloca um numero no topo da stack. <br /></td></tr>
-<tr class="separator:a713358cdefe18ccdb5a3d702ba362db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6951677634bc532fc5a003441d4adf3a"><td class="memItemLeft" align="right" valign="top"><a id="a6951677634bc532fc5a003441d4adf3a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (<a class="el" href="structSTACK.html">STACK</a> *s)</td></tr>
-<tr class="memdesc:a6951677634bc532fc5a003441d4adf3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vai buscar um numero a stack. <br /></td></tr>
-<tr class="separator:a6951677634bc532fc5a003441d4adf3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5cedecfc57357268d3f1bc2251e41c2"><td class="memItemLeft" align="right" valign="top"><a id="ab5cedecfc57357268d3f1bc2251e41c2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#ab5cedecfc57357268d3f1bc2251e41c2">notBit</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:ab5cedecfc57357268d3f1bc2251e41c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vai buscar um numero a stack. Inverte os bits e devolve o resultado. <br /></td></tr>
-<tr class="separator:ab5cedecfc57357268d3f1bc2251e41c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0e7f93ecf903606c18d45bec765d0af"><td class="memItemLeft" align="right" valign="top"><a id="aa0e7f93ecf903606c18d45bec765d0af"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#aa0e7f93ecf903606c18d45bec765d0af">xorBit</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:aa0e7f93ecf903606c18d45bec765d0af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vai buscar dois numeros a stack. Realiza a operacao XOR em todos os bits. Devolve 1 se os dois bits forem diferentes. <br /></td></tr>
-<tr class="separator:aa0e7f93ecf903606c18d45bec765d0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87ddb45957ad31e8fbf872fcb980e4fe"><td class="memItemLeft" align="right" valign="top"><a id="a87ddb45957ad31e8fbf872fcb980e4fe"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a87ddb45957ad31e8fbf872fcb980e4fe">orBit</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:a87ddb45957ad31e8fbf872fcb980e4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vai buscar dois numeros a stack. Realiza a operacao OR em todos os bits. Devolve 1 se um dos bits for 1. <br /></td></tr>
-<tr class="separator:a87ddb45957ad31e8fbf872fcb980e4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ae205bf675605647494105305d24055"><td class="memItemLeft" align="right" valign="top"><a id="a2ae205bf675605647494105305d24055"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a2ae205bf675605647494105305d24055">andBit</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:a2ae205bf675605647494105305d24055"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vai buscar dois numeros a stack. Realiza a operacao AND em todos os bits. Devolve 1 se os dois bits forem 1. <br /></td></tr>
-<tr class="separator:a2ae205bf675605647494105305d24055"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29b3c44405db92a29344d328e2e4651b"><td class="memItemLeft" align="right" valign="top"><a id="a29b3c44405db92a29344d328e2e4651b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a29b3c44405db92a29344d328e2e4651b">modulo</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:a29b3c44405db92a29344d328e2e4651b"><td class="mdescLeft">&#160;</td><td class="mdescRight">vai buscar dois numeros a stack e coloca no topo o resto da divisao inteira <br /></td></tr>
-<tr class="separator:a29b3c44405db92a29344d328e2e4651b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ab17915b15ba862c641ae6fa73809f0"><td class="memItemLeft" align="right" valign="top"><a id="a4ab17915b15ba862c641ae6fa73809f0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a4ab17915b15ba862c641ae6fa73809f0">divisao</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:a4ab17915b15ba862c641ae6fa73809f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">vai buscar dois numeros a stack e coloca no topo a sua divisao <br /></td></tr>
-<tr class="separator:a4ab17915b15ba862c641ae6fa73809f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a708f9d7f0d9888d26271fc90526a585f"><td class="memItemLeft" align="right" valign="top"><a id="a708f9d7f0d9888d26271fc90526a585f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a708f9d7f0d9888d26271fc90526a585f">multiplicacao</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:a708f9d7f0d9888d26271fc90526a585f"><td class="mdescLeft">&#160;</td><td class="mdescRight">vai buscar dois numeros a stack e coloca no topo o seu produto <br /></td></tr>
-<tr class="separator:a708f9d7f0d9888d26271fc90526a585f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a056357165fff318f4f3c17cc076e9dc1"><td class="memItemLeft" align="right" valign="top"><a id="a056357165fff318f4f3c17cc076e9dc1"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a056357165fff318f4f3c17cc076e9dc1">exponencializacao</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:a056357165fff318f4f3c17cc076e9dc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">vai buscar dois numeros (x e y) a stack e coloca do topo y^x <br /></td></tr>
-<tr class="separator:a056357165fff318f4f3c17cc076e9dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7811fb17f7f06d1a9944566339f5ffe6"><td class="memItemLeft" align="right" valign="top"><a id="a7811fb17f7f06d1a9944566339f5ffe6"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a7811fb17f7f06d1a9944566339f5ffe6">incrementar</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:a7811fb17f7f06d1a9944566339f5ffe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">vai buscar um numero a stack e coloca no topo a soma do mesmo por um <br /></td></tr>
-<tr class="separator:a7811fb17f7f06d1a9944566339f5ffe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2211524654f0c9ef9f40454fb0fcf67"><td class="memItemLeft" align="right" valign="top"><a id="ac2211524654f0c9ef9f40454fb0fcf67"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#ac2211524654f0c9ef9f40454fb0fcf67">decrementar</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:ac2211524654f0c9ef9f40454fb0fcf67"><td class="mdescLeft">&#160;</td><td class="mdescRight">vai buscar um numero a stack e coloca no topo a subtracao do mesmo por um <br /></td></tr>
-<tr class="separator:ac2211524654f0c9ef9f40454fb0fcf67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a692317e5cd3ebde6bd7abedf33010e5c"><td class="memItemLeft" align="right" valign="top"><a id="a692317e5cd3ebde6bd7abedf33010e5c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a692317e5cd3ebde6bd7abedf33010e5c">sub</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:a692317e5cd3ebde6bd7abedf33010e5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">vai buscar dois numeros a stack e coloca no topo a sua diferenca <br /></td></tr>
-<tr class="separator:a692317e5cd3ebde6bd7abedf33010e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3a2272fdf8b389529a61c81915cc339"><td class="memItemLeft" align="right" valign="top"><a id="ac3a2272fdf8b389529a61c81915cc339"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#ac3a2272fdf8b389529a61c81915cc339">add</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:ac3a2272fdf8b389529a61c81915cc339"><td class="mdescLeft">&#160;</td><td class="mdescRight">vai buscar dois numeros a stack e coloca no topo a sua soma <br /></td></tr>
-<tr class="separator:ac3a2272fdf8b389529a61c81915cc339"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d519a3b22e8d5ec3e24a50abff9ac9d"><td class="memItemLeft" align="right" valign="top"><a id="a3d519a3b22e8d5ec3e24a50abff9ac9d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a3d519a3b22e8d5ec3e24a50abff9ac9d">val</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:a3d519a3b22e8d5ec3e24a50abff9ac9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devolve o valor se nao forem realizadas operacoes. <br /></td></tr>
-<tr class="separator:a3d519a3b22e8d5ec3e24a50abff9ac9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c1b518d7bd978270f01158c2776ccd6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a7c1b518d7bd978270f01158c2776ccd6">troca2Topo</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:a7c1b518d7bd978270f01158c2776ccd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trocar os dois elementos do topo da stack.  <a href="stack_8h.html#a7c1b518d7bd978270f01158c2776ccd6">More...</a><br /></td></tr>
+<tr class="memitem:a7c1b518d7bd978270f01158c2776ccd6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guiao2_8c.html#a7c1b518d7bd978270f01158c2776ccd6">troca2Topo</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
+<tr class="memdesc:a7c1b518d7bd978270f01158c2776ccd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trocar os dois elementos do topo da stack.  <a href="guiao2_8c.html#a7c1b518d7bd978270f01158c2776ccd6">More...</a><br /></td></tr>
 <tr class="separator:a7c1b518d7bd978270f01158c2776ccd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3e5dc9bac5d87267df4cccd13f9e8ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#ab3e5dc9bac5d87267df4cccd13f9e8ca">copiaNesimo</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:ab3e5dc9bac5d87267df4cccd13f9e8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copia n-ésimo elemento para o topo da stack (0 e o topo da stack)  <a href="stack_8h.html#ab3e5dc9bac5d87267df4cccd13f9e8ca">More...</a><br /></td></tr>
+<tr class="memitem:ab3e5dc9bac5d87267df4cccd13f9e8ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guiao2_8c.html#ab3e5dc9bac5d87267df4cccd13f9e8ca">copiaNesimo</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
+<tr class="memdesc:ab3e5dc9bac5d87267df4cccd13f9e8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copia n-ésimo elemento para o topo da stack (0 e o topo da stack)  <a href="guiao2_8c.html#ab3e5dc9bac5d87267df4cccd13f9e8ca">More...</a><br /></td></tr>
 <tr class="separator:ab3e5dc9bac5d87267df4cccd13f9e8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad80b294565ccb3a3f0ef8a65a4abe1d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#ad80b294565ccb3a3f0ef8a65a4abe1d5">popG2</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:ad80b294565ccb3a3f0ef8a65a4abe1d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza a operacao pop.  <a href="stack_8h.html#ad80b294565ccb3a3f0ef8a65a4abe1d5">More...</a><br /></td></tr>
+<tr class="memitem:ad80b294565ccb3a3f0ef8a65a4abe1d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guiao2_8c.html#ad80b294565ccb3a3f0ef8a65a4abe1d5">popG2</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
+<tr class="memdesc:ad80b294565ccb3a3f0ef8a65a4abe1d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza a operacao pop.  <a href="guiao2_8c.html#ad80b294565ccb3a3f0ef8a65a4abe1d5">More...</a><br /></td></tr>
 <tr class="separator:ad80b294565ccb3a3f0ef8a65a4abe1d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9768799e6353785fa195df33bd20171"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#ac9768799e6353785fa195df33bd20171">duplicar</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:ac9768799e6353785fa195df33bd20171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplica um numero por 2 (duplica)  <a href="stack_8h.html#ac9768799e6353785fa195df33bd20171">More...</a><br /></td></tr>
+<tr class="memitem:ac9768799e6353785fa195df33bd20171"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guiao2_8c.html#ac9768799e6353785fa195df33bd20171">duplicar</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
+<tr class="memdesc:ac9768799e6353785fa195df33bd20171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplica um numero por 2 (duplica)  <a href="guiao2_8c.html#ac9768799e6353785fa195df33bd20171">More...</a><br /></td></tr>
 <tr class="separator:ac9768799e6353785fa195df33bd20171"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a184382a33e2c67eb2b333020b5a3fb98"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a184382a33e2c67eb2b333020b5a3fb98">rodar3</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:a184382a33e2c67eb2b333020b5a3fb98"><td class="mdescLeft">&#160;</td><td class="mdescRight">roda os 3 elementos no topo da stack  <a href="stack_8h.html#a184382a33e2c67eb2b333020b5a3fb98">More...</a><br /></td></tr>
+<tr class="memitem:a184382a33e2c67eb2b333020b5a3fb98"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guiao2_8c.html#a184382a33e2c67eb2b333020b5a3fb98">rodar3</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
+<tr class="memdesc:a184382a33e2c67eb2b333020b5a3fb98"><td class="mdescLeft">&#160;</td><td class="mdescRight">roda os 3 elementos no topo da stack  <a href="guiao2_8c.html#a184382a33e2c67eb2b333020b5a3fb98">More...</a><br /></td></tr>
 <tr class="separator:a184382a33e2c67eb2b333020b5a3fb98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Definicao da stack. </p>
+<div class="textblock"><p>Operacoes do guiao 2. </p>
 
-<p class="definition">Definition in file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition in file <a class="el" href="guiao2_8c_source.html">guiao2.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ab3e5dc9bac5d87267df4cccd13f9e8ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab3e5dc9bac5d87267df4cccd13f9e8ca">&#9670;&nbsp;</a></span>copiaNesimo()</h2>

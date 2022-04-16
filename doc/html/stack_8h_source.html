@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Calculadora de stack: stack.h Source File</title>
+<title>Calculadora de stack: code/stack.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,6 +59,11 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">stack.h</div>  </div>
@@ -91,16 +95,27 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stack_8h.html#a692317e5cd3ebde6bd7abedf33010e5c">sub</a> (<a class="code" href="structSTACK.html">STACK</a> *s, <span class="keywordtype">char</span> *token);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stack_8h.html#ac3a2272fdf8b389529a61c81915cc339">add</a> (<a class="code" href="structSTACK.html">STACK</a> *s, <span class="keywordtype">char</span> *token);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stack_8h.html#a3d519a3b22e8d5ec3e24a50abff9ac9d">val</a> (<a class="code" href="structSTACK.html">STACK</a> *s, <span class="keywordtype">char</span> *token);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stack_8h.html#a7c1b518d7bd978270f01158c2776ccd6">troca2Topo</a> (<a class="code" href="structSTACK.html">STACK</a> *s, <span class="keywordtype">char</span> *token);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stack_8h.html#ab3e5dc9bac5d87267df4cccd13f9e8ca">copiaNesimo</a> (<a class="code" href="structSTACK.html">STACK</a> *s, <span class="keywordtype">char</span> *token);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stack_8h.html#ad80b294565ccb3a3f0ef8a65a4abe1d5">popG2</a> (<a class="code" href="structSTACK.html">STACK</a> *s, <span class="keywordtype">char</span> *token);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stack_8h.html#ac9768799e6353785fa195df33bd20171">duplicar</a> (<a class="code" href="structSTACK.html">STACK</a> *s, <span class="keywordtype">char</span> *token);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stack_8h.html#a184382a33e2c67eb2b333020b5a3fb98">rodar3</a> (<a class="code" href="structSTACK.html">STACK</a> *s, <span class="keywordtype">char</span> *token);</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="astack_8h_html_ac9768799e6353785fa195df33bd20171"><div class="ttname"><a href="stack_8h.html#ac9768799e6353785fa195df33bd20171">duplicar</a></div><div class="ttdeci">int duplicar(STACK *s, char *token)</div><div class="ttdoc">Multiplica um numero por 2 (duplica)</div><div class="ttdef"><b>Definition:</b> <a href="guiao2_8c_source.html#l00069">guiao2.c:69</a></div></div>
 <div class="ttc" id="astack_8h_html_ac2211524654f0c9ef9f40454fb0fcf67"><div class="ttname"><a href="stack_8h.html#ac2211524654f0c9ef9f40454fb0fcf67">decrementar</a></div><div class="ttdeci">int decrementar(STACK *s, char *token)</div><div class="ttdoc">vai buscar um numero a stack e coloca no topo a subtracao do mesmo por um</div><div class="ttdef"><b>Definition:</b> <a href="guiao1_8c_source.html#l00128">guiao1.c:128</a></div></div>
 <div class="ttc" id="astack_8h_html_a692317e5cd3ebde6bd7abedf33010e5c"><div class="ttname"><a href="stack_8h.html#a692317e5cd3ebde6bd7abedf33010e5c">sub</a></div><div class="ttdeci">int sub(STACK *s, char *token)</div><div class="ttdoc">vai buscar dois numeros a stack e coloca no topo a sua diferenca</div><div class="ttdef"><b>Definition:</b> <a href="guiao1_8c_source.html#l00140">guiao1.c:140</a></div></div>
 <div class="ttc" id="astack_8h_html_a713358cdefe18ccdb5a3d702ba362db0"><div class="ttname"><a href="stack_8h.html#a713358cdefe18ccdb5a3d702ba362db0">push</a></div><div class="ttdeci">void push(STACK *s, int elem)</div><div class="ttdoc">Coloca um numero no topo da stack.</div><div class="ttdef"><b>Definition:</b> <a href="stack_8c_source.html#l00017">stack.c:17</a></div></div>
 <div class="ttc" id="astructSTACK_html"><div class="ttname"><a href="structSTACK.html">STACK</a></div><div class="ttdef"><b>Definition:</b> <a href="stack_8h_source.html#l00009">stack.h:9</a></div></div>
 <div class="ttc" id="astack_8h_html_a4ab17915b15ba862c641ae6fa73809f0"><div class="ttname"><a href="stack_8h.html#a4ab17915b15ba862c641ae6fa73809f0">divisao</a></div><div class="ttdeci">int divisao(STACK *s, char *token)</div><div class="ttdoc">vai buscar dois numeros a stack e coloca no topo a sua divisao</div><div class="ttdef"><b>Definition:</b> <a href="guiao1_8c_source.html#l00077">guiao1.c:77</a></div></div>
+<div class="ttc" id="astack_8h_html_a184382a33e2c67eb2b333020b5a3fb98"><div class="ttname"><a href="stack_8h.html#a184382a33e2c67eb2b333020b5a3fb98">rodar3</a></div><div class="ttdeci">int rodar3(STACK *s, char *token)</div><div class="ttdoc">roda os 3 elementos no topo da stack</div><div class="ttdef"><b>Definition:</b> <a href="guiao2_8c_source.html#l00085">guiao2.c:85</a></div></div>
 <div class="ttc" id="astack_8h_html_a4002d1ff72ad115103ac2daef3200bc5"><div class="ttname"><a href="stack_8h.html#a4002d1ff72ad115103ac2daef3200bc5">new_stack</a></div><div class="ttdeci">STACK * new_stack()</div><div class="ttdoc">Cria uma nova stack.</div><div class="ttdef"><b>Definition:</b> <a href="stack_8c_source.html#l00011">stack.c:11</a></div></div>
+<div class="ttc" id="astack_8h_html_ad80b294565ccb3a3f0ef8a65a4abe1d5"><div class="ttname"><a href="stack_8h.html#ad80b294565ccb3a3f0ef8a65a4abe1d5">popG2</a></div><div class="ttdeci">int popG2(STACK *s, char *token)</div><div class="ttdoc">Realiza a operacao pop.</div><div class="ttdef"><b>Definition:</b> <a href="guiao2_8c_source.html#l00051">guiao2.c:51</a></div></div>
+<div class="ttc" id="astack_8h_html_a7c1b518d7bd978270f01158c2776ccd6"><div class="ttname"><a href="stack_8h.html#a7c1b518d7bd978270f01158c2776ccd6">troca2Topo</a></div><div class="ttdeci">int troca2Topo(STACK *s, char *token)</div><div class="ttdoc">Trocar os dois elementos do topo da stack.</div><div class="ttdef"><b>Definition:</b> <a href="guiao2_8c_source.html#l00016">guiao2.c:16</a></div></div>
 <div class="ttc" id="astack_8h_html_ac3a2272fdf8b389529a61c81915cc339"><div class="ttname"><a href="stack_8h.html#ac3a2272fdf8b389529a61c81915cc339">add</a></div><div class="ttdeci">int add(STACK *s, char *token)</div><div class="ttdoc">vai buscar dois numeros a stack e coloca no topo a sua soma</div><div class="ttdef"><b>Definition:</b> <a href="guiao1_8c_source.html#l00153">guiao1.c:153</a></div></div>
 <div class="ttc" id="astack_8h_html_a3d519a3b22e8d5ec3e24a50abff9ac9d"><div class="ttname"><a href="stack_8h.html#a3d519a3b22e8d5ec3e24a50abff9ac9d">val</a></div><div class="ttdeci">int val(STACK *s, char *token)</div><div class="ttdoc">Devolve o valor se nao forem realizadas operacoes.</div><div class="ttdef"><b>Definition:</b> <a href="guiao1_8c_source.html#l00167">guiao1.c:167</a></div></div>
 <div class="ttc" id="astack_8h_html_a29b3c44405db92a29344d328e2e4651b"><div class="ttname"><a href="stack_8h.html#a29b3c44405db92a29344d328e2e4651b">modulo</a></div><div class="ttdeci">int modulo(STACK *s, char *token)</div><div class="ttdoc">vai buscar dois numeros a stack e coloca no topo o resto da divisao inteira</div><div class="ttdef"><b>Definition:</b> <a href="guiao1_8c_source.html#l00064">guiao1.c:64</a></div></div>
+<div class="ttc" id="astack_8h_html_ab3e5dc9bac5d87267df4cccd13f9e8ca"><div class="ttname"><a href="stack_8h.html#ab3e5dc9bac5d87267df4cccd13f9e8ca">copiaNesimo</a></div><div class="ttdeci">int copiaNesimo(STACK *s, char *token)</div><div class="ttdoc">Copia n-ésimo elemento para o topo da stack (0 e o topo da stack)</div><div class="ttdef"><b>Definition:</b> <a href="guiao2_8c_source.html#l00034">guiao2.c:34</a></div></div>
 <div class="ttc" id="astack_8h_html_a7811fb17f7f06d1a9944566339f5ffe6"><div class="ttname"><a href="stack_8h.html#a7811fb17f7f06d1a9944566339f5ffe6">incrementar</a></div><div class="ttdeci">int incrementar(STACK *s, char *token)</div><div class="ttdoc">vai buscar um numero a stack e coloca no topo a soma do mesmo por um</div><div class="ttdef"><b>Definition:</b> <a href="guiao1_8c_source.html#l00116">guiao1.c:116</a></div></div>
 <div class="ttc" id="astack_8h_html_aa0e7f93ecf903606c18d45bec765d0af"><div class="ttname"><a href="stack_8h.html#aa0e7f93ecf903606c18d45bec765d0af">xorBit</a></div><div class="ttdeci">int xorBit(STACK *s, char *token)</div><div class="ttdoc">Vai buscar dois numeros a stack. Realiza a operacao XOR em todos os bits. Devolve 1 se os dois bits f...</div><div class="ttdef"><b>Definition:</b> <a href="guiao1_8c_source.html#l00025">guiao1.c:25</a></div></div>
 <div class="ttc" id="astack_8h_html_a87ddb45957ad31e8fbf872fcb980e4fe"><div class="ttname"><a href="stack_8h.html#a87ddb45957ad31e8fbf872fcb980e4fe">orBit</a></div><div class="ttdeci">int orBit(STACK *s, char *token)</div><div class="ttdoc">Vai buscar dois numeros a stack. Realiza a operacao OR em todos os bits. Devolve 1 se um dos bits for...</div><div class="ttdef"><b>Definition:</b> <a href="guiao1_8c_source.html#l00038">guiao1.c:38</a></div></div>
