@@ -8,6 +8,23 @@
 #include <string.h>
 #include "stack.h"
 
+//! Transforma o numero no topo da stack num char 
+/*!
+ * input: 79 c 108 c 97 c \n
+ * output: Ola
+ */
+int intParaChar (STACK *s, char *token)
+{
+    if (strcmp (token, "c")==0)
+    {
+        int x = pop (s);
+        char y = x + '0';
+        push (s, y);
+        return 1;
+    }
+    return 0;
+}
+
 //! Trocar os dois elementos do topo da stack
 /*!
  * input: 1 2 3 \ \n
@@ -61,17 +78,18 @@ int popG2 (STACK *s, char *token)
 //! Multiplica um numero por 2 (duplica)
 /*!
  * input: 2 _ \n
- * output: 4
+ * output: 22
  * 
  * input: 1 2 _ \n
- * output: 24 
+ * output: 122 
  */
 int duplicar (STACK *s, char *token)
 {
     if (strcmp (token, "_")==0)
     {
         int x = pop (s);
-        push (s, 2*x);
+        push (s, x);
+        push (s, x);
         return 1;
     }
     return 0;
@@ -89,8 +107,9 @@ int rodar3 (STACK *s, char *token)
         int x = pop (s);
         int y = pop (s);
         int z = pop (s);
-        int w = y*100 + x*10 + z;
-        push (s, w);
+        push (s, y);
+        push (s, x);
+        push (s, z);
         return 1;
     }
     return 0;
