@@ -18,7 +18,7 @@ int intParaChar (STACK *s, char *token)
     if (strcmp (token, "c")==0)
     {
         int x = pop (s);
-        char y = x + '0';
+        char y = x;
         push (s, y);
         return 1;
     }
@@ -75,7 +75,7 @@ int popG2 (STACK *s, char *token)
     return 0;
 }
 
-//! Multiplica um numero por 2 (duplica)
+//! Duplica um numero e coloca-o no topo da stack
 /*!
  * input: 2 _ \n
  * output: 22

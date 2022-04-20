@@ -12,6 +12,26 @@ typedef struct
     int sp;
 } STACK;
 
+typedef enum
+{
+    INT,
+    DOUBLE,
+    CHAR,
+    STRING
+} TIPO;
+
+typedef struct 
+{
+    TIPO t;
+    union
+    {
+        long l;
+        double d;
+        char c;
+        char *str;
+    } data;
+} DATA;
+
 STACK *new_stack ();
 void push (STACK *s, int elem);
 int pop (STACK *s);
@@ -36,3 +56,6 @@ int copiaNesimo (STACK *s, char *token);
 int popG2 (STACK *s, char *token);
 int duplicar (STACK *s, char *token);
 int rodar3 (STACK *s, char *token);
+
+int buscaPorIndice (STACK *s, char *token);
+int IfThenElse (STACK *s, char *token);

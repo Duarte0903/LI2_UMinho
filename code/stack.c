@@ -20,7 +20,7 @@ void push (STACK *s, int elem)
     s -> stack[s -> sp] = elem;
 }
 
-//! Vai buscar um numero a stack
+//! Vai buscar um numero ao topo da stack
 int pop (STACK *s)
 {
     int ret = s -> stack[s -> sp];
