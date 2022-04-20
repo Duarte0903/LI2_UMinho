@@ -57,5 +57,12 @@ int popG2 (STACK *s, char *token);
 int duplicar (STACK *s, char *token);
 int rodar3 (STACK *s, char *token);
 
+int menorDosDois (STACK *s, char *token);
+int maiorDosDois (STACK *s, char *token);
+int menor (STACK *s, char *token);
+int maior (STACK *s, char *token);
+int nao (STACK *s, char *token);
+int ouShortcut (STACK *s, char *token);
+int eShortcut (STACK *s, char *token);
 int buscaPorIndice (STACK *s, char *token);
 int IfThenElse (STACK *s, char *token);
