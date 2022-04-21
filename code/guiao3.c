@@ -127,7 +127,7 @@ int eShortcut (STACK *s, char *token)
  * input: 3 3 = \n
  * output: 1
  */
-int buscaPorIndice (STACK *s, char *token)  // FIX !!!
+int buscaPorIndice (STACK *s, char *token) 
 {
     if (strcmp (token, "=")==0)
     {
