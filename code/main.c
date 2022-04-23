@@ -54,8 +54,8 @@ int main ()
         for (int i = 1; i <= s -> sp; i++)
         {
             printf ("%d", s -> stack[i]);
-        }
 
+        }
         putchar ('\n');
     }
 

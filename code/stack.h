@@ -6,35 +6,38 @@
 
 #define Max_Stack 1000
 
+//! Enum de tipos de dados
+typedef enum 
+{
+    LONG = 1,
+    DOUBLE = 2,
+    CHAR = 3
+}TIPO;
+
+//! Definicao do tipo de dados que vai ser guardado na stack
 typedef struct 
 {
-    int stack[Max_Stack];
-    int sp;
-} STACK;
-
-typedef enum
-{
-    INT,
-    DOUBLE,
-    CHAR,
-    STRING
-} TIPO;
-
-typedef struct 
-{
-    TIPO t;
+    TIPO tipo;
     union
     {
         long l;
         double d;
         char c;
         char *str;
-    } data;
+    }elem;  
 } DATA;
 
+//! Definicao da stack. Array de elementos e stack pointer
+typedef struct 
+{
+    int stack[Max_Stack];
+    int sp;
+} STACK;
+
+
 STACK *new_stack ();
-void push (STACK *s, int elem);
 int pop (STACK *s);
+void push (STACK *s, char elem);
 
 int notBit (STACK *s, char *token);
 int xorBit (STACK *s, char *token);
