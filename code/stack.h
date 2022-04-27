@@ -9,10 +9,11 @@
 //! Enum de tipos de dados
 typedef enum 
 {
-    LONG = 1,
-    DOUBLE = 2,
-    CHAR = 3
-}TIPO;
+    LONG,
+    DOUBLE,
+    CHAR,
+    STRING
+} TIPO;
 
 //! Definicao do tipo de dados que vai ser guardado na stack
 typedef struct 
@@ -30,13 +31,13 @@ typedef struct
 //! Definicao da stack. Array de elementos e stack pointer
 typedef struct 
 {
-    int stack[Max_Stack];
+    DATA stack[Max_Stack];
     int sp;
 } STACK;
 
 
 STACK *new_stack ();
-int pop (STACK *s);
+DATA pop (STACK *s);
 void push (STACK *s, char elem);
 
 int notBit (STACK *s, char *token);
@@ -60,6 +61,8 @@ int popG2 (STACK *s, char *token);
 int duplicar (STACK *s, char *token);
 int rodar3 (STACK *s, char *token);
 
+int capB (STACK *s, char *token);
+int capA (STACK *s, char *token);
 int menorDosDois (STACK *s, char *token);
 int maiorDosDois (STACK *s, char *token);
 int menor (STACK *s, char *token);

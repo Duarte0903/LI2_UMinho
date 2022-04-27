@@ -165,10 +165,10 @@ int add (STACK *s, char *token)
 
 //! Devolve o valor se nao forem realizadas operacoes
 int val (STACK *s, char *token)
-{
-    int val;
-    sscanf (token, "%d", &val);
-    push (s, val);
+{   
+    int val1
+    double val2
+    if (sscanf ("%lf", &val2))
     return 1;
 }
 

@@ -14,16 +14,32 @@ STACK * new_stack ()
 }
 
 //! Vai buscar um elemento ao topo da stack
-int pop (STACK *s)
+DATA pop (STACK *s)
 {
-    int x = s -> stack[s -> sp];
+    DATA x = s -> stack[s -> sp];
     s -> sp--;
     return x; 
 }
 
 //!coloca um elemento no topo da stack
-void push (STACK *s, char elem)
+void push (STACK *s, DATA elem)
 {
     s -> sp++;
     s -> stack[s -> sp] = elem;
+}
+
+DATA cria_char(char c)
+{
+    DATA x = (DATA)calloc(sizeof(DATA));
+    x.tipo = CHAR;
+    x.tipo.c = c;
+    return x
+}
+
+DATA cria_string(char *s)
+{
+    DATA x = (DATA)calloc(sizeof(DATA));
+    x.tipo = STRING;
+    x.tipo.s = strdup(s);
+    return x
 }
