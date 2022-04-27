@@ -166,9 +166,23 @@ int add (STACK *s, char *token)
 //! Devolve o valor se nao forem realizadas operacoes
 int val (STACK *s, char *token)
 {   
-    int val1
-    double val2
-    if (sscanf ("%lf", &val2))
+    long val1;
+    double val2;
+
+    if (sscanf ("%ld", &val1) == 1)
+    {
+        DATA x;
+        x = cria_long (val1);
+        push (s, x);
+    }
+    
+    if (sscanf ("%lf", &val2) == 1)
+    {
+        DATA x;
+        x = cria_Double (val2);
+        push (s, x);
+    }
+
     return 1;
 }
 
