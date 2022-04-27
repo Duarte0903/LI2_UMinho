@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['val_28',['val',['../guiao1_8c.html#a3d519a3b22e8d5ec3e24a50abff9ac9d',1,'val(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#a3d519a3b22e8d5ec3e24a50abff9ac9d',1,'val(STACK *s, char *token):&#160;guiao1.c']]]
+  ['tipo_42',['TIPO',['../stack_8h.html#a8b5c5448dae3751816dfae698591f6a7',1,'stack.h']]],
+  ['troca2topo_43',['troca2Topo',['../guiao2_8c.html#a7c1b518d7bd978270f01158c2776ccd6',1,'troca2Topo(STACK *s, char *token):&#160;guiao2.c'],['../stack_8h.html#a7c1b518d7bd978270f01158c2776ccd6',1,'troca2Topo(STACK *s, char *token):&#160;guiao2.c']]]
 ];

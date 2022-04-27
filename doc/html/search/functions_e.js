@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xorbit_58',['xorBit',['../guiao1_8c.html#aa0e7f93ecf903606c18d45bec765d0af',1,'xorBit(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#aa0e7f93ecf903606c18d45bec765d0af',1,'xorBit(STACK *s, char *token):&#160;guiao1.c']]]
+  ['val_88',['val',['../guiao1_8c.html#a3d519a3b22e8d5ec3e24a50abff9ac9d',1,'val(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#a3d519a3b22e8d5ec3e24a50abff9ac9d',1,'val(STACK *s, char *token):&#160;guiao1.c']]]
 ];

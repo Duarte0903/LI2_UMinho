@@ -9,7 +9,9 @@ digraph "code/stack.h"
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="code/guiao2.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$guiao2_8c.html",tooltip="Operacoes do guiao 2."];
   Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="code/main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html",tooltip="Ficheiro main."];
+  Node4 [label="code/guiao3.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$guiao3_8c.html",tooltip="Operacoes do guiao 3."];
   Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="code/stack.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$stack_8c.html",tooltip="Operacoes da stack."];
+  Node5 [label="code/main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html",tooltip="Ficheiro main."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="code/stack.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$stack_8c.html",tooltip="Operacoes da stack."];
 }

@@ -8,6 +8,28 @@
 #include <string.h>
 #include "stack.h"
 
+//! Da push a 11
+int capB (STACK *s, char *token)
+{
+    if (strcmp (token, "B")==0)
+    {
+        push (s, 11);
+        return 1;
+    }
+    return 0;
+}
+
+//! Da push a 10
+int capA (STACK *s, char *token)
+{
+    if (strcmp (token, "A")==0)
+    {
+        push (s, 10);
+        return 1;
+    }
+    return 0;
+}
+
 //! Coloca no topo da stack o menor de dois numeros
 int menorDosDois (STACK *s, char *token)
 {

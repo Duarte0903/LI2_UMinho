@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['troca2topo_27',['troca2Topo',['../guiao2_8c.html#a7c1b518d7bd978270f01158c2776ccd6',1,'troca2Topo(STACK *s, char *token):&#160;guiao2.c'],['../stack_8h.html#a7c1b518d7bd978270f01158c2776ccd6',1,'troca2Topo(STACK *s, char *token):&#160;guiao2.c']]]
+  ['stack_38',['STACK',['../structSTACK.html',1,'']]],
+  ['stack_2ec_39',['stack.c',['../stack_8c.html',1,'']]],
+  ['stack_2eh_40',['stack.h',['../stack_8h.html',1,'']]],
+  ['sub_41',['sub',['../guiao1_8c.html#a692317e5cd3ebde6bd7abedf33010e5c',1,'sub(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#a692317e5cd3ebde6bd7abedf33010e5c',1,'sub(STACK *s, char *token):&#160;guiao1.c']]]
 ];

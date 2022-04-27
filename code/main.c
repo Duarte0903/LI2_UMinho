@@ -25,7 +25,7 @@ int handleG2 (STACK *s, char *token)
 //! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
 int handleG3 (STACK *s, char *token)
 {
-    if (menorDosDois (s, token) || maiorDosDois (s, token) || menor (s, token) || maior (s, token) || nao (s, token) || ouShortcut (s, token) || eShortcut (s, token) || buscaPorIndice (s, token) || IfThenElse (s, token)) return 1;
+    if (capB (s, token) || capA (s, token) || menorDosDois (s, token) || maiorDosDois (s, token) || menor (s, token) || maior (s, token) || nao (s, token) || ouShortcut (s, token) || eShortcut (s, token) || buscaPorIndice (s, token) || IfThenElse (s, token)) return 1;
     else return 0;
 }
 

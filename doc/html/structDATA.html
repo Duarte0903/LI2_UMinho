@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Calculadora de stack: STACK Struct Reference</title>
+<title>Calculadora de stack: DATA Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,30 +63,43 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structSTACK-members.html">List of all members</a>  </div>
+<a href="structDATA-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">STACK Struct Reference</div>  </div>
+<div class="title">DATA Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Definicao da stack. Array de elementos e stack pointer.  
- <a href="structSTACK.html#details">More...</a></p>
+<p>Definicao do tipo de dados que vai ser guardado na stack.  
+ <a href="structDATA.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="stack_8h_source.html">stack.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ab0b137cc84b88411b699760d490db341"><td class="memItemLeft" align="right" valign="top"><a id="ab0b137cc84b88411b699760d490db341"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>stack</b> [Max_Stack]</td></tr>
-<tr class="separator:ab0b137cc84b88411b699760d490db341"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b186cf876dace2f1e30fcbe260cad9a"><td class="memItemLeft" align="right" valign="top"><a id="a1b186cf876dace2f1e30fcbe260cad9a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>sp</b></td></tr>
-<tr class="separator:a1b186cf876dace2f1e30fcbe260cad9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa06a38086ac1e99c1c691fe782075e29"><td class="memItemLeft" align="right" valign="top"><a id="aa06a38086ac1e99c1c691fe782075e29"></a>
+<a class="el" href="stack_8h.html#a8b5c5448dae3751816dfae698591f6a7">TIPO</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tipo</b></td></tr>
+<tr class="separator:aa06a38086ac1e99c1c691fe782075e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad986773277e0f0a444a62015f0ae6aed"><td class="memItemLeft" ><a id="ad986773277e0f0a444a62015f0ae6aed"></a>
+union {</td></tr>
+<tr class="memitem:a030f9ff7747da4988c4dfdd7749933f4"><td class="memItemLeft" >
+&#160;&#160;&#160;long&#160;&#160;&#160;<b>l</b></td></tr>
+<tr class="separator:a030f9ff7747da4988c4dfdd7749933f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbec90f9a218226b999d0055194a0d1a"><td class="memItemLeft" >
+&#160;&#160;&#160;double&#160;&#160;&#160;<b>d</b></td></tr>
+<tr class="separator:abbec90f9a218226b999d0055194a0d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d4417554488842735148177213d204a"><td class="memItemLeft" >
+&#160;&#160;&#160;char&#160;&#160;&#160;<b>c</b></td></tr>
+<tr class="separator:a2d4417554488842735148177213d204a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a491c68617e1091af329bb7b287d459c3"><td class="memItemLeft" >
+&#160;&#160;&#160;char *&#160;&#160;&#160;<b>str</b></td></tr>
+<tr class="separator:a491c68617e1091af329bb7b287d459c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad986773277e0f0a444a62015f0ae6aed"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><b>elem</b></td></tr>
+<tr class="separator:ad986773277e0f0a444a62015f0ae6aed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Definicao da stack. Array de elementos e stack pointer. </p>
+<div class="textblock"><p>Definicao do tipo de dados que vai ser guardado na stack. </p>
 
-<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00031">31</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stack_8h_source.html#l00018">18</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>code/<a class="el" href="stack_8h_source.html">stack.h</a></li>
 </ul>

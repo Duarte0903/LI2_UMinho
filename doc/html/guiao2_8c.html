@@ -88,6 +88,9 @@ Include dependency graph for guiao2.c:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:adb32f78d8260f6751190c9bbd212f3a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guiao2_8c.html#adb32f78d8260f6751190c9bbd212f3a6">intParaChar</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
+<tr class="memdesc:adb32f78d8260f6751190c9bbd212f3a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforma o numero no topo da stack num char.  <a href="guiao2_8c.html#adb32f78d8260f6751190c9bbd212f3a6">More...</a><br /></td></tr>
+<tr class="separator:adb32f78d8260f6751190c9bbd212f3a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c1b518d7bd978270f01158c2776ccd6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guiao2_8c.html#a7c1b518d7bd978270f01158c2776ccd6">troca2Topo</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
 <tr class="memdesc:a7c1b518d7bd978270f01158c2776ccd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trocar os dois elementos do topo da stack.  <a href="guiao2_8c.html#a7c1b518d7bd978270f01158c2776ccd6">More...</a><br /></td></tr>
 <tr class="separator:a7c1b518d7bd978270f01158c2776ccd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -98,7 +101,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad80b294565ccb3a3f0ef8a65a4abe1d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza a operacao pop.  <a href="guiao2_8c.html#ad80b294565ccb3a3f0ef8a65a4abe1d5">More...</a><br /></td></tr>
 <tr class="separator:ad80b294565ccb3a3f0ef8a65a4abe1d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9768799e6353785fa195df33bd20171"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guiao2_8c.html#ac9768799e6353785fa195df33bd20171">duplicar</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
-<tr class="memdesc:ac9768799e6353785fa195df33bd20171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplica um numero por 2 (duplica)  <a href="guiao2_8c.html#ac9768799e6353785fa195df33bd20171">More...</a><br /></td></tr>
+<tr class="memdesc:ac9768799e6353785fa195df33bd20171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duplica um numero e coloca-o no topo da stack.  <a href="guiao2_8c.html#ac9768799e6353785fa195df33bd20171">More...</a><br /></td></tr>
 <tr class="separator:ac9768799e6353785fa195df33bd20171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a184382a33e2c67eb2b333020b5a3fb98"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="guiao2_8c.html#a184382a33e2c67eb2b333020b5a3fb98">rodar3</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char *token)</td></tr>
 <tr class="memdesc:a184382a33e2c67eb2b333020b5a3fb98"><td class="mdescLeft">&#160;</td><td class="mdescRight">roda os 3 elementos no topo da stack  <a href="guiao2_8c.html#a184382a33e2c67eb2b333020b5a3fb98">More...</a><br /></td></tr>
@@ -139,17 +142,17 @@ Functions</h2></td></tr>
 <p>input: 7 2 3 2 $ (n = 2) <br  />
 output: 7237 </p>
 
-<p class="definition">Definition at line <a class="el" href="guiao2_8c_source.html#l00034">34</a> of file <a class="el" href="guiao2_8c_source.html">guiao2.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">if</span> (strcmp (token, <span class="stringliteral">&quot;$&quot;</span>)==0)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">int</span> n = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">int</span> x = s -&gt; stack[s -&gt; sp - n];</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="stack_8c.html#a713358cdefe18ccdb5a3d702ba362db0">push</a> (s, x);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="guiao2_8c_source.html#l00051">51</a> of file <a class="el" href="guiao2_8c_source.html">guiao2.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> (strcmp (token, <span class="stringliteral">&quot;$&quot;</span>)==0)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">int</span> n = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">int</span> x = s -&gt; stack[s -&gt; sp - n];</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="stack_8c.html#a1ff3daf71c44e6c58023663f72b35ffc">push</a> (s, x);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -179,22 +182,67 @@ output: 7237 </p>
       </table>
 </div><div class="memdoc">
 
-<p>Multiplica um numero por 2 (duplica) </p>
+<p>Duplica um numero e coloca-o no topo da stack. </p>
 <p>input: 2 _ <br  />
-output: 4</p>
+output: 22</p>
 <p>input: 1 2 _ <br  />
-output: 24 </p>
+output: 122 </p>
 
-<p class="definition">Definition at line <a class="el" href="guiao2_8c_source.html#l00069">69</a> of file <a class="el" href="guiao2_8c_source.html">guiao2.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span> (strcmp (token, <span class="stringliteral">&quot;_&quot;</span>)==0)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">int</span> x = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="stack_8c.html#a713358cdefe18ccdb5a3d702ba362db0">push</a> (s, 2*x);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="guiao2_8c_source.html#l00086">86</a> of file <a class="el" href="guiao2_8c_source.html">guiao2.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span> (strcmp (token, <span class="stringliteral">&quot;_&quot;</span>)==0)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">int</span> x = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="stack_8c.html#a1ff3daf71c44e6c58023663f72b35ffc">push</a> (s, x);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="stack_8c.html#a1ff3daf71c44e6c58023663f72b35ffc">push</a> (s, x);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="adb32f78d8260f6751190c9bbd212f3a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb32f78d8260f6751190c9bbd212f3a6">&#9670;&nbsp;</a></span>intParaChar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int intParaChar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSTACK.html">STACK</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>token</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transforma o numero no topo da stack num char. </p>
+<p>input: 79 c 108 c 97 c <br  />
+output: Ola </p>
+
+<p class="definition">Definition at line <a class="el" href="guiao2_8c_source.html#l00016">16</a> of file <a class="el" href="guiao2_8c_source.html">guiao2.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">if</span> (strcmp (token, <span class="stringliteral">&quot;c&quot;</span>)==0)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">int</span> x = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">char</span> y = x;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="stack_8c.html#a1ff3daf71c44e6c58023663f72b35ffc">push</a> (s, y);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -228,15 +276,15 @@ output: 24 </p>
 <p>input: 1 2 3 ; <br  />
 output: 12 </p>
 
-<p class="definition">Definition at line <a class="el" href="guiao2_8c_source.html#l00051">51</a> of file <a class="el" href="guiao2_8c_source.html">guiao2.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> (strcmp (token, <span class="stringliteral">&quot;;&quot;</span>)==0)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="guiao2_8c_source.html#l00068">68</a> of file <a class="el" href="guiao2_8c_source.html">guiao2.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span> (strcmp (token, <span class="stringliteral">&quot;;&quot;</span>)==0)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -270,20 +318,21 @@ output: 12 </p>
 <p>input: 1 2 3 @ <br  />
 output: 231 </p>
 
-<p class="definition">Definition at line <a class="el" href="guiao2_8c_source.html#l00085">85</a> of file <a class="el" href="guiao2_8c_source.html">guiao2.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (strcmp (token, <span class="stringliteral">&quot;@&quot;</span>)==0)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">int</span> x = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">int</span> y = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">int</span> z = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">int</span> w = y*100 + x*10 + z;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="stack_8c.html#a713358cdefe18ccdb5a3d702ba362db0">push</a> (s, w);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="guiao2_8c_source.html#l00103">103</a> of file <a class="el" href="guiao2_8c_source.html">guiao2.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">if</span> (strcmp (token, <span class="stringliteral">&quot;@&quot;</span>)==0)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">int</span> x = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">int</span> y = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">int</span> z = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <a class="code" href="stack_8c.html#a1ff3daf71c44e6c58023663f72b35ffc">push</a> (s, y);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="stack_8c.html#a1ff3daf71c44e6c58023663f72b35ffc">push</a> (s, x);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="stack_8c.html#a1ff3daf71c44e6c58023663f72b35ffc">push</a> (s, z);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -317,24 +366,24 @@ output: 231 </p>
 <p>input: 1 2 3 \ <br  />
 output: 132 </p>
 
-<p class="definition">Definition at line <a class="el" href="guiao2_8c_source.html#l00016">16</a> of file <a class="el" href="guiao2_8c_source.html">guiao2.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">if</span> (strcmp (token, <span class="stringliteral">&quot;\\&quot;</span>)==0)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">int</span> x = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">int</span> y = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="stack_8c.html#a713358cdefe18ccdb5a3d702ba362db0">push</a> (s, x);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="stack_8c.html#a713358cdefe18ccdb5a3d702ba362db0">push</a> (s, y);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> 1;   </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="guiao2_8c_source.html#l00033">33</a> of file <a class="el" href="guiao2_8c_source.html">guiao2.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span> (strcmp (token, <span class="stringliteral">&quot;\\&quot;</span>)==0)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">int</span> x = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">int</span> y = <a class="code" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (s);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="stack_8c.html#a1ff3daf71c44e6c58023663f72b35ffc">push</a> (s, x);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="stack_8c.html#a1ff3daf71c44e6c58023663f72b35ffc">push</a> (s, y);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> 1;   </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="astack_8c_html_a713358cdefe18ccdb5a3d702ba362db0"><div class="ttname"><a href="stack_8c.html#a713358cdefe18ccdb5a3d702ba362db0">push</a></div><div class="ttdeci">void push(STACK *s, int elem)</div><div class="ttdoc">Coloca um numero no topo da stack.</div><div class="ttdef"><b>Definition:</b> <a href="stack_8c_source.html#l00017">stack.c:17</a></div></div>
-<div class="ttc" id="astack_8c_html_a6951677634bc532fc5a003441d4adf3a"><div class="ttname"><a href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a></div><div class="ttdeci">int pop(STACK *s)</div><div class="ttdoc">Vai buscar um numero a stack.</div><div class="ttdef"><b>Definition:</b> <a href="stack_8c_source.html#l00024">stack.c:24</a></div></div>
+<div class="ttc" id="astack_8c_html_a1ff3daf71c44e6c58023663f72b35ffc"><div class="ttname"><a href="stack_8c.html#a1ff3daf71c44e6c58023663f72b35ffc">push</a></div><div class="ttdeci">void push(STACK *s, char elem)</div><div class="ttdoc">coloca um elemento no topo da stack</div><div class="ttdef"><b>Definition:</b> <a href="stack_8c_source.html#l00025">stack.c:25</a></div></div>
+<div class="ttc" id="astack_8c_html_a6951677634bc532fc5a003441d4adf3a"><div class="ttname"><a href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a></div><div class="ttdeci">int pop(STACK *s)</div><div class="ttdoc">Vai buscar um elemento ao topo da stack.</div><div class="ttdef"><b>Definition:</b> <a href="stack_8c_source.html#l00017">stack.c:17</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
