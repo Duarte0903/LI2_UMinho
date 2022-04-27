@@ -12,7 +12,7 @@ typedef enum
     LONG,
     DOUBLE,
     CHAR,
-    STRING
+    STRING,
 } TIPO;
 
 //! Definicao do tipo de dados que vai ser guardado na stack
@@ -38,7 +38,11 @@ typedef struct
 
 STACK *new_stack ();
 DATA pop (STACK *s);
-void push (STACK *s, char elem);
+void push (STACK *s, DATA elem);
+DATA cria_Long (long d);
+DATA cria_Double (double d);
+DATA cria_Char (char c);
+
 
 int notBit (STACK *s, char *token);
 int xorBit (STACK *s, char *token);

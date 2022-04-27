@@ -5,6 +5,7 @@
  */
 
 #include <stdlib.h>
+#include <string.h>
 #include "stack.h"
 
 //! Cria uma nova stack
@@ -28,18 +29,36 @@ void push (STACK *s, DATA elem)
     s -> stack[s -> sp] = elem;
 }
 
-DATA cria_char(char c)
+DATA cria_Long (long l)
 {
-    DATA x = (DATA)calloc(sizeof(DATA));
-    x.tipo = CHAR;
-    x.tipo.c = c;
-    return x
+    DATA x;
+    x.tipo = LONG;
+    x.elem.l = l;
+    return x;
 }
 
-DATA cria_string(char *s)
+DATA cria_Double (double d)
 {
-    DATA x = (DATA)calloc(sizeof(DATA));
-    x.tipo = STRING;
-    x.tipo.s = strdup(s);
-    return x
+    DATA x;
+    x.tipo = DOUBLE;
+    x.elem.d = d;
+    return x;
 }
+
+DATA cria_char (char c)
+{
+    DATA x;
+    x.tipo = CHAR;
+    x.elem.c = c;
+    return x;
+}
+
+DATA cria_string (char *s)
+{
+    DATA x;
+    x.tipo = STRING;
+    x.elem.str = (char *)malloc(sizeof(s));
+    strcpy(x.elem.str,s);
+    return x;
+}
+
