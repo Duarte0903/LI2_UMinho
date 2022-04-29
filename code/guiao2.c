@@ -17,9 +17,12 @@ int intParaChar (STACK *s, char *token)
 {
     if (strcmp (token, "c")==0)
     {
-        int x = pop (s);
-        char y = x;
-        push (s, y);
+        DATA x = pop (s);
+        char y;
+        if (x.tipo == LONG) y = x.elem.l;
+        else y = x.elem.d;
+        DATA w = cria_Char (y);
+        push (s, w);
         return 1;
     }
     return 0;
@@ -34,8 +37,8 @@ int troca2Topo (STACK *s, char *token)
 {
     if (strcmp (token, "\\")==0)
     {
-        int x = pop (s);
-        int y = pop (s);
+        DATA x = pop (s);
+        DATA y = pop (s);
         push (s, x);
         push (s, y);
         return 1;   
@@ -52,9 +55,10 @@ int copiaNesimo (STACK *s, char *token)
 {
     if (strcmp (token, "$")==0)
     {
-        int n = pop (s);
-        int x = s -> stack[s -> sp - n];
-        push (s, x);
+        DATA n = pop (s);
+        int x = n.elem.l;
+        DATA y = s -> stack[s -> sp - x];
+        push (s, y);
         return 1;
     }
     return 0;
@@ -87,7 +91,7 @@ int duplicar (STACK *s, char *token)
 {
     if (strcmp (token, "_")==0)
     {
-        int x = pop (s);
+        DATA x = pop (s);
         push (s, x);
         push (s, x);
         return 1;
@@ -104,9 +108,9 @@ int rodar3 (STACK *s, char *token)
 {
     if (strcmp (token, "@")==0)
     {
-        int x = pop (s);
-        int y = pop (s);
-        int z = pop (s);
+        DATA x = pop (s);
+        DATA y = pop (s);
+        DATA z = pop (s);
         push (s, y);
         push (s, x);
         push (s, z);

@@ -13,7 +13,9 @@ int capB (STACK *s, char *token)
 {
     if (strcmp (token, "B")==0)
     {
-        push (s, 11);
+        long x = 11;
+        DATA y = cria_Long (x);
+        push (s, y);
         return 1;
     }
     return 0;
@@ -24,7 +26,9 @@ int capA (STACK *s, char *token)
 {
     if (strcmp (token, "A")==0)
     {
-        push (s, 10);
+        long x = 10;
+        DATA y = cria_Long (x);
+        push (s, y);
         return 1;
     }
     return 0;
@@ -35,9 +39,11 @@ int menorDosDois (STACK *s, char *token)
 {
     if (strcmp (token, "e<")==0)
     {
-        int x = pop (s);
-        int y = pop (s);
-        if (y<x) push (s, y);
+        DATA x = pop (s);
+        DATA y = pop (s);
+        double w = x.elem.d;
+        double z = y.elem.d;
+        if (z<w) push (s, y);
         else push (s, x);
         return 1;
     }
@@ -49,9 +55,11 @@ int maiorDosDois (STACK *s, char *token)
 {
     if (strcmp (token, "e>")==0)
     {
-        int x = pop (s);
-        int y = pop (s);
-        if (y>x) push (s, y);
+        DATA x = pop (s);
+        DATA y = pop (s);
+        double w = x.elem.d;
+        double z = y.elem.d;
+        if (z>w) push (s, y);
         else push (s, x);
         return 1;
     }
@@ -63,10 +71,27 @@ int menor (STACK *s, char *token)
 {
     if (strcmp (token, "<")==0)
     {
-        int x = pop (s);
-        int y = pop (s);
-        if (y<x) push (s, 1);
-        else push (s, 0);
+        DATA x = pop (s);
+        DATA y = pop (s);
+
+        if (x.tipo == LONG && y.tipo == LONG)
+        {
+            if (y.elem.l < x.elem.l) push (s, cria_Long (1));
+            else push (s, cria_Long (0));
+        }
+
+        if ((x.tipo == LONG && y.tipo == DOUBLE) || (x.tipo == DOUBLE && y.tipo == LONG))
+        {
+            if (y.elem.l < x.elem.l) push (s, cria_Long (1));
+            else push (s, cria_Long (0));
+        }
+        
+        if (x.tipo == DOUBLE && y.tipo == DOUBLE)
+        {
+            if (y.elem.d < x.elem.d) push (s, cria_Long (1));
+            else push (s, cria_Long (0));
+        }
+
         return 1;
     }
     return 0;
@@ -77,10 +102,27 @@ int maior (STACK *s, char *token)
 {
     if (strcmp (token, ">")==0)
     {
-        int x = pop (s);
-        int y = pop (s);
-        if (y>x) push (s, 1);
-        else push (s, 0);
+        DATA x = pop (s);
+        DATA y = pop (s);
+
+        if (x.tipo == LONG && y.tipo == LONG)
+        {
+            if (y.elem.l > x.elem.l) push (s, cria_Long (1));
+            else push (s, cria_Long (0));
+        }
+
+        if ((x.tipo == LONG && y.tipo == DOUBLE) || (x.tipo == DOUBLE && y.tipo == LONG))
+        {
+            if (y.elem.l > x.elem.l) push (s, cria_Long (1));
+            else push (s, cria_Long (0));
+        }
+        
+        if (x.tipo == DOUBLE && y.tipo == DOUBLE)
+        {
+            if (y.elem.d > x.elem.d) push (s, cria_Long (1));
+            else push (s, cria_Long (0));
+        }
+
         return 1;
     }
     return 0;
@@ -97,9 +139,9 @@ int nao (STACK *s, char *token)
 {
     if (strcmp (token, "!")==0)
     {
-        int x = pop (s);
-        if (x == 1) push (s, 0);
-        else push (s, 1);
+        DATA x = pop (s);
+        if (x.elem.l == 0) push (s, cria_Long (1));
+        else push (s, x);
         return 1;
     }
     return 0;
@@ -114,12 +156,12 @@ int ouShortcut (STACK *s, char *token)
 {
     if (strcmp (token, "e|")==0)
     {
-        int x = pop (s);
-        int y = pop (s);
-        if (y == 0 && x == 0) push (s, 0);
-        if (y==0) push (s, x);
-        if (x==0) push (s, y);
-        if (x==1 || y==1) push (s, 1);
+        DATA x = pop (s);
+        DATA y = pop (s);
+        if (y.elem.l == 0 && x.elem.l != 0) push (s, x);
+        if (x.elem.l == 0 && y.elem.l != 0) push (s, y);
+        if (x.elem.l == 1 && y.elem.l != 0) push (s, cria_Long (1));
+        if (y.elem.l == 1 && x.elem.l != 0) push (s, cria_Long (1));
         return 1;
     }
     return 0;
@@ -134,11 +176,11 @@ int eShortcut (STACK *s, char *token)
 {
     if (strcmp (token, "e&")==0)
     {
-        int x = pop (s);
-        int y = pop (s);
-        if (y == 0 || x==0) push (s, 0);
-        if (x==1) push (s, y);
-        if (y==1) push (s, x);
+        DATA x = pop (s);
+        DATA y = pop (s);
+        if (y.elem.l == 0 || x.elem.l == 0) push (s, cria_Long (0));
+        if (x.elem.l == 1) push (s, y);
+        if (y.elem.l == 1) push (s, x);
         return 1;
     }
     return 0;
@@ -154,11 +196,12 @@ int buscaPorIndice (STACK *s, char *token)
     if (strcmp (token, "=")==0)
     {
         int i, flag = 0, index;
-        int x = pop (s);
+        DATA x = pop (s);
+        long indice = x.elem.l;
 
         for (i = s -> sp; i > 0; i--)
         {
-            if (s -> stack[i] == x)
+            if (s -> stack[i].elem.l == indice)
             {
                 pop (s);
                 index = i;
@@ -167,8 +210,8 @@ int buscaPorIndice (STACK *s, char *token)
             else pop (s);
         }
 
-        if (flag != 0) push (s, index);
-        else push (s, 0);
+        if (flag != 0) push (s, cria_Long (index));
+        else push (s, cria_Long (0));
 
         return 1;
     }
@@ -187,10 +230,10 @@ int IfThenElse (STACK *s, char *token)
 {
     if (strcmp (token, "?")==0)
     {
-        int x = pop (s);
-        int y = pop (s);
-        int z = pop (s);
-        if (z != 0) push (s, y);
+        DATA x = pop (s);
+        DATA y = pop (s);
+        DATA z = pop (s);
+        if (z.elem.l != 0) push (s, y);
         else push (s, x);
         return 1;
     }

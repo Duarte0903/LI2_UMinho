@@ -32,7 +32,7 @@ int handleG3 (STACK *s, char *token)
 //! Funcao handle principal
 int mainHandle (STACK *s, char *token)
 {
-    if (handleG3 (s, token) || handleG2 (s, token) || handleG1 (s, token) || val (s, token)) return 1;
+    if (handleG3 (s, token) || handleG2 (s, token) || handleG1 (s, token)) return 1;
     else return 0;
 }
 
@@ -51,11 +51,8 @@ int main ()
         }
         mainHandle (s, token);
 
-        for (int i = 1; i <= s -> sp; i++)
-        {
-            printf ("%d", s -> stack[i]);
+        printStack (s);
 
-        }
         putchar ('\n');
     }
 

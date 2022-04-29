@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "stack.h"
+#include <stdio.h>
 
 //! Cria uma nova stack
 STACK * new_stack ()
@@ -29,6 +30,7 @@ void push (STACK *s, DATA elem)
     s -> stack[s -> sp] = elem;
 }
 
+//! Transforma um long em DATA
 DATA cria_Long (long l)
 {
     DATA x;
@@ -37,6 +39,7 @@ DATA cria_Long (long l)
     return x;
 }
 
+//! Transforma um double em DATA
 DATA cria_Double (double d)
 {
     DATA x;
@@ -45,7 +48,8 @@ DATA cria_Double (double d)
     return x;
 }
 
-DATA cria_char (char c)
+//! Transforma um char em DATA
+DATA cria_Char (char c)
 {
     DATA x;
     x.tipo = CHAR;
@@ -53,6 +57,7 @@ DATA cria_char (char c)
     return x;
 }
 
+//! Transforma uma string em DATA
 DATA cria_string (char *s)
 {
     DATA x;
@@ -60,5 +65,16 @@ DATA cria_string (char *s)
     x.elem.str = (char *)malloc(sizeof(s));
     strcpy(x.elem.str,s);
     return x;
+}
+
+//! Da print aos elementos da stack
+void printStack (STACK *s)
+{
+    for (int i = 0; i < s -> sp; i++)
+    {
+        if (s -> stack[i].tipo == LONG) printf("%ld", s->stack[i].elem.l);
+        if (s -> stack[i].tipo == DOUBLE) printf("%f", s->stack[i].elem.d);
+        if (s -> stack[i].tipo == CHAR) printf("%c", s->stack[i].elem.c);
+    }
 }
 

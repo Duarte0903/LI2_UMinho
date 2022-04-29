@@ -35,8 +35,8 @@ typedef struct
     int sp;
 } STACK;
 
-
 STACK *new_stack ();
+void printStack (STACK *s);
 DATA pop (STACK *s);
 void push (STACK *s, DATA elem);
 DATA cria_Long (long d);
