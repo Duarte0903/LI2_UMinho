@@ -66,11 +66,17 @@ DATA cria_string (char *s)
     DATA x;
     x.tipo = STRING;
     x.elem.str = (char *)malloc(sizeof(s));
-    strcpy(x.elem.str,s);
+    strcpy (x.elem.str,s);
     return x;
 }
 
-
+DATA cria_array (STACK *arr)
+{
+    DATA x;
+    x.tipo = ARRAY;
+    x.elem.arr = arr;
+    return x;
+}
 
 //! Da print aos elementos da stack
 void printStack (STACK *s)
@@ -80,6 +86,7 @@ void printStack (STACK *s)
         if (s -> stack[i].tipo == LONG) printf("%ld", s->stack[i].elem.l);
         if (s -> stack[i].tipo == DOUBLE) printf("%f", s->stack[i].elem.d);
         if (s -> stack[i].tipo == CHAR) printf("%c", s->stack[i].elem.c);
+        if (s -> stack[i].tipo == ARRAY) printStack (s -> stack[i].elem.arr);
     }
 }
 

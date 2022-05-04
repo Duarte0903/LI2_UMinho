@@ -32,7 +32,7 @@ int handleG3 (STACK *s, char *token)
 
 int handleG4 (STACK *s, char *token)
 {
-    if (range (s, token)) return 1;
+    if (criaArray (s, token) || range (s, token)) return 1;
     else return 0;
 }
 
@@ -65,7 +65,7 @@ void parser (STACK *s, char *token)
 
         else 
         {
-            if ((strstr("+-*/()%#&|^~e&e|_;\\@$clifts<>=!?e<e>,", token) != NULL)) mainHandle(s, token);
+            if ((strstr("+-*/()%#&|^~e&e|_;\\@$clifts<>=!?e<e>,[]\"", token) != NULL)) mainHandle(s, token);
         }
     }
 } 

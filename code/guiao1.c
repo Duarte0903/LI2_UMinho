@@ -201,6 +201,15 @@ int multiplicacao (STACK *s, char *token)
             push (s, result);
             r = 1;
         }
+
+        if (x.tipo == ARRAY && y.tipo == LONG)
+        {
+            for (int i = y.elem.l; i>0; i--)
+            {
+                push (s, x);
+            }
+            r = 1;
+        }
     }
     return r;
 }
@@ -405,6 +414,40 @@ int add (STACK *s, char *token)
             z = x.elem.d + y.elem.d;
             DATA w = cria_Double (z);
             push (s, w);
+            r = 1;
+        }
+
+        if (x.tipo == ARRAY && y.tipo == DOUBLE)
+        {
+            push (x.elem.arr, y);
+            r = 1;
+        }
+
+        if (x.tipo == DOUBLE && y.tipo == ARRAY)
+        {
+            push (y.elem.arr, x);
+            r = 1;
+        }
+
+        if (x.tipo == ARRAY && y.tipo == LONG)
+        {
+            push (x.elem.arr, y);
+            r = 1;
+        }
+
+        if (x.tipo == LONG && y.tipo == ARRAY)
+        {
+            push (y.elem.arr, x);
+            r = 1;
+        }
+
+        if (x.tipo == ARRAY && y.tipo == ARRAY)
+        {
+            while (y.elem.arr != NULL)
+            {
+                DATA x = pop (y.elem.arr);
+                push (x.elem.arr, x);
+            }
             r = 1;
         }
     }

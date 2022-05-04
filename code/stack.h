@@ -13,7 +13,8 @@ typedef enum
     DOUBLE,
     CHAR,
     STRING,
-    ARRAY_INT
+    ARRAY,
+    BLOCO
 } TIPO;
 
 //! Definicao do tipo de dados que vai ser guardado na stack
@@ -27,11 +28,12 @@ typedef struct
         char c;
         char *str;
         struct stack *arr;
+        struct stack *bloc;
     }elem;  
 } DATA;
 
 //! Definicao da stack. Array de elementos e stack pointer
-typedef struct 
+typedef struct stack
 {
     DATA stack[Max_Stack];
     int sp;
@@ -51,6 +53,8 @@ void push (STACK *s, DATA elem);
 DATA cria_Long (long d);
 DATA cria_Double (double d);
 DATA cria_Char (char c);
+DATA cria_string (char *s);
+DATA cria_array (STACK *arr);
 
 
 int notBit (STACK *s, char *token);
@@ -86,4 +90,5 @@ int eShortcut (STACK *s, char *token);
 int buscaPorIndice (STACK *s, char *token);
 int IfThenElse (STACK *s, char *token);
 
+int criaArray (STACK *s, char *token);
 int range (STACK *s, char *token);
