@@ -15,17 +15,19 @@
  */
 int intParaChar (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "c")==0)
     {
         DATA x = pop (s);
-        char y;
-        if (x.tipo == LONG) y = x.elem.l;
-        else y = x.elem.d;
-        DATA w = cria_Char (y);
-        push (s, w);
-        return 1;
+        if (x.tipo == LONG)
+        {
+            DATA w = cria_Char (x.elem.l);
+            push (s, w);
+            r = 1;
+        }
     }
-    return 0;
+    return r;
 }
 
 //! Trocar os dois elementos do topo da stack
@@ -35,15 +37,17 @@ int intParaChar (STACK *s, char *token)
  */
 int troca2Topo (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "\\")==0)
     {
         DATA x = pop (s);
         DATA y = pop (s);
         push (s, x);
         push (s, y);
-        return 1;   
+        r = 1;   
     }
-    return 0;
+    return r;
 }
 
 //! Copia n-ésimo elemento para o topo da stack (0 e o topo da stack)
@@ -53,15 +57,17 @@ int troca2Topo (STACK *s, char *token)
  */
 int copiaNesimo (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "$")==0)
     {
         DATA n = pop (s);
         int x = n.elem.l;
         DATA y = s -> stack[s -> sp - x];
         push (s, y);
-        return 1;
+        r = 1;
     }
-    return 0;
+    return r;
 }
 
 //! Realiza a operacao pop
@@ -71,12 +77,14 @@ int copiaNesimo (STACK *s, char *token)
  */
 int popG2 (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, ";")==0)
     {
         pop (s);
-        return 1;
+        r = 1;
     }
-    return 0;
+    return r;
 }
 
 //! Duplica um numero e coloca-o no topo da stack
@@ -89,14 +97,16 @@ int popG2 (STACK *s, char *token)
  */
 int duplicar (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "_")==0)
     {
         DATA x = pop (s);
         push (s, x);
         push (s, x);
-        return 1;
+        r = 1;
     }
-    return 0;
+    return r;
 }
 
 //! roda os 3 elementos no topo da stack
@@ -106,6 +116,8 @@ int duplicar (STACK *s, char *token)
  */
 int rodar3 (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "@")==0)
     {
         DATA x = pop (s);
@@ -114,8 +126,7 @@ int rodar3 (STACK *s, char *token)
         push (s, y);
         push (s, x);
         push (s, z);
-        return 1;
+        r = 1;
     }
-    return 0;
-
+    return r;
 }

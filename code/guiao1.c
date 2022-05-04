@@ -12,20 +12,24 @@
 //! Vai buscar um numero a stack. Inverte os bits e devolve o resultado
 int notBit (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "~")==0)
     {
         DATA x = pop (s);
         long y = ~(x.elem.l);
         DATA z = cria_Long (y);
         push (s, z);
-        return 1;
+        r = 1;
     }
-    return 0;
+    return r;
 }
 
 //! Vai buscar dois numeros a stack. Realiza a operacao XOR em todos os bits. Devolve 1 se os dois bits forem diferentes 
 int xorBit (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token , "^")==0)
     {
         DATA x = pop (s);
@@ -33,14 +37,16 @@ int xorBit (STACK *s, char *token)
         long z = y.elem.l ^ x.elem.l;
         DATA w = cria_Long (z);
         push (s, w);
-        return 1;
+        r = 1;
     }
-    return 0;
+    return r;
 }
 
 //! Vai buscar dois numeros a stack. Realiza a operacao OR em todos os bits. Devolve 1 se um dos bits for 1 
 int orBit (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "|")==0)
     {
         DATA x = pop (s);
@@ -48,14 +54,16 @@ int orBit (STACK *s, char *token)
         long z = y.elem.l | x.elem.l;
         DATA w = cria_Long (z); 
         push (s, w);
-        return 1;
+        r = 1;;
     }
-    return 0;
+    return r;
 }
 
 //! Vai buscar dois numeros a stack. Realiza a operacao AND em todos os bits. Devolve 1 se os dois bits forem 1 
 int andBit (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "&")==0)
     {
         DATA x = pop (s);
@@ -63,14 +71,16 @@ int andBit (STACK *s, char *token)
         long z = y.elem.l & x.elem.l;
         DATA w = cria_Long (z); 
         push (s, w);
-        return 1;
+        r = 1;
     }
-    return 0;
+    return r;
 }
 
 //! vai buscar dois numeros a stack e coloca no topo o resto da divisao inteira
 int modulo (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token , "%")==0)
     {
         DATA x = pop (s);
@@ -83,16 +93,17 @@ int modulo (STACK *s, char *token)
             long r = w%z;
             DATA result = cria_Long (r);
             push (s, result);
+            r = 1;
         }
-        
-        return 1;
     }
-    return 0;
+    return r;
 }
 
 //! vai buscar dois numeros a stack e coloca no topo a sua divisao
 int divisao (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token , "/")==0)
     {
         DATA x = pop (s);
@@ -105,6 +116,7 @@ int divisao (STACK *s, char *token)
             long r = w/z;
             DATA result = cria_Long (r);
             push (s, result);
+            r = 1;
         }
         
         if (x.tipo == LONG && y.tipo == DOUBLE) 
@@ -114,6 +126,7 @@ int divisao (STACK *s, char *token)
             double r = w/z;
             DATA result = cria_Double (r);
             push (s, result);
+            r = 1;
         }
 
         if (x.tipo == DOUBLE && y.tipo == LONG) 
@@ -123,6 +136,7 @@ int divisao (STACK *s, char *token)
             double r = w/z;
             DATA result = cria_Double (r);
             push (s, result);
+            r = 1;
         }
 
         if (x.tipo == DOUBLE && y.tipo == DOUBLE) 
@@ -132,16 +146,17 @@ int divisao (STACK *s, char *token)
             double r = w/z;
             DATA result = cria_Double (r);
             push (s, result);
+            r = 1;
         }
-
-        return 1;
     }
-    return 0;
+    return r;
 }
 
 //! vai buscar dois numeros a stack e coloca no topo o seu produto
 int multiplicacao (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "*")==0)
     {
         DATA x = pop (s);
@@ -154,6 +169,7 @@ int multiplicacao (STACK *s, char *token)
             long r = w*z;
             DATA result = cria_Long (r);
             push (s, result);
+            r = 1;
         }
         
         if (x.tipo == LONG && y.tipo == DOUBLE) 
@@ -163,6 +179,7 @@ int multiplicacao (STACK *s, char *token)
             double r = w*z;
             DATA result = cria_Double (r);
             push (s, result);
+            r = 1;
         }
 
         if (x.tipo == DOUBLE && y.tipo == LONG) 
@@ -172,6 +189,7 @@ int multiplicacao (STACK *s, char *token)
             double r = w*z;
             DATA result = cria_Double (r);
             push (s, result);
+            r = 1;
         }
 
         if (x.tipo == DOUBLE && y.tipo == DOUBLE) 
@@ -181,16 +199,17 @@ int multiplicacao (STACK *s, char *token)
             double r = w*z;
             DATA result = cria_Double (r);
             push (s, result);
+            r = 1;
         }
-
-        return 1;
     }
-    return 0;
+    return r;
 }
 
 //! vai buscar dois numeros (x e y) a stack e coloca do topo y^x
 int exponencializacao (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "#") == 0)
     {
         DATA x = pop (s);
@@ -203,6 +222,7 @@ int exponencializacao (STACK *s, char *token)
             long r = pow (w,z);
             DATA result = cria_Long (r);
             push (s, result);
+            r = 1;
         }
         
         if (x.tipo == LONG && y.tipo == DOUBLE) 
@@ -212,6 +232,7 @@ int exponencializacao (STACK *s, char *token)
             double r = pow (w,z);
             DATA result = cria_Double (r);
             push (s, result);
+            r = 1;
         }
 
         if (x.tipo == DOUBLE && y.tipo == LONG) 
@@ -221,6 +242,7 @@ int exponencializacao (STACK *s, char *token)
             double r = pow (w,z);
             DATA result = cria_Double (r);
             push (s, result);
+            r = 1;
         }
 
         if (x.tipo == DOUBLE && y.tipo == DOUBLE) 
@@ -230,67 +252,72 @@ int exponencializacao (STACK *s, char *token)
             double r = pow (w,z);
             DATA result = cria_Double (r);
             push (s, result);
+            r = 1;
         }
-
-        return 1;
     }
-    return 0;
+    return r;
 }
 
 //! vai buscar um numero a stack e coloca no topo a soma do mesmo por um 
 int incrementar (STACK *s, char *token)
 {
+    int r = 0;;
     if (strcmp (token, ")") == 0)
     {
         DATA x = pop (s);
 
         if (x.tipo == LONG)
         {
-            int y = x.elem.l +1;
+            int y = x.elem.l + 1;
             DATA w = cria_Long (y);
             push (s, w);
+            r = 1;
         }
 
          if (x.tipo == DOUBLE)
         {
-            int y = x.elem.d +1;
+            int y = x.elem.d + 1;
             DATA w = cria_Double (y);
             push (s, w);
+            r = 1;
         }
-
-        return 1;
     }
-    return 0;
+    return r;
 }
 
 //! vai buscar um numero a stack e coloca no topo a subtracao do mesmo por um 
 int decrementar (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "(") == 0)
     {
         DATA x = pop (s);
 
         if (x.tipo == LONG)
         {
-            int y = x.elem.l -1;
+            int y = x.elem.l - 1;
             DATA w = cria_Long (y);
             push (s, w);
+            r = 1;
         }
 
          if (x.tipo == DOUBLE)
         {
-            int y = x.elem.d -1;
+            int y = x.elem.d - 1;
             DATA w = cria_Double (y);
             push (s, w);
+            r = 1;
         }
-        return 1;
     }
-    return 0;
+    return r;
 }
 
 //! vai buscar dois numeros a stack e coloca no topo a sua diferenca
 int sub (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "-") == 0)
     {
         DATA x = pop (s);
@@ -299,43 +326,47 @@ int sub (STACK *s, char *token)
         if (x.tipo == LONG && y.tipo == LONG) 
         {
             long z;
-            z = x.elem.l - y.elem.l;
+            z = y.elem.l - x.elem.l;
             DATA w = cria_Long (z);
             push (s, w);
+            r = 1;
         }
 
         if (x.tipo == LONG && y.tipo == DOUBLE) 
         {
             double z;
-            z = x.elem.l - y.elem.d;
+            z = y.elem.l - x.elem.d;
             DATA w = cria_Double (z);
             push (s, w);
+            r = 1;
         }
 
         if (x.tipo == DOUBLE && y.tipo == LONG) 
         {
             double z;
-            z = x.elem.d - y.elem.l;
+            z = y.elem.d - x.elem.l;
             DATA w = cria_Double (z);
             push (s, w);
+            r = 1;
         }
 
         if (x.tipo == DOUBLE && y.tipo == DOUBLE) 
         {
             double z;
-            z = x.elem.d - y.elem.d;
+            z = y.elem.d - x.elem.d;
             DATA w = cria_Double (z);
             push (s, w);
+            r = 1;
         }
-
-        return 1;
     }
-    return 0;
+    return r;
 }
 
 //! vai buscar dois numeros a stack e coloca no topo a sua soma
 int add (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "+") == 0)
     {
         DATA x = pop (s);
@@ -347,6 +378,7 @@ int add (STACK *s, char *token)
             z = x.elem.l + y.elem.l;
             DATA w = cria_Long (z);
             push (s, w);
+            r = 1;
         }
 
         if (x.tipo == LONG && y.tipo == DOUBLE) 
@@ -355,6 +387,7 @@ int add (STACK *s, char *token)
             z = x.elem.l + y.elem.d;
             DATA w = cria_Double (z);
             push (s, w);
+            r = 1;
         }
 
         if (x.tipo == DOUBLE && y.tipo == LONG) 
@@ -363,6 +396,7 @@ int add (STACK *s, char *token)
             z = x.elem.d + y.elem.l;
             DATA w = cria_Double (z);
             push (s, w);
+            r = 1;
         }
 
         if (x.tipo == DOUBLE && y.tipo == DOUBLE) 
@@ -371,10 +405,9 @@ int add (STACK *s, char *token)
             z = x.elem.d + y.elem.d;
             DATA w = cria_Double (z);
             push (s, w);
+            r = 1;
         }
-
-        return 1;
     }
-    return 0;
+    return r;
 }
 

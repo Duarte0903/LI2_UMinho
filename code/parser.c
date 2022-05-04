@@ -1,105 +1,72 @@
-#include "stack.h"
-#include <stdio.h>
+/**
+ * @file parser.c
+ * @brief Atribui tipos aos tokens e decide a operação
+ * 
+ */
+
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
-#include <math.h>
+#include "stack.h"
+#include <stdio.h>
 
-
-int operacoesparser(char *token, STACK *s)
+//! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
+int handleG1 (STACK *s, char *token)
 {
-    int r = 0;
-
-    if (strstr("+-*/()%#"   ,token)  != NULL) (r = aritmeticas(token,s));
-    if (strstr("&|^~e&e|"   ,token)  != NULL) (r = logicas   (token,s));
-    if (strstr("_;\\@$,S/N/",token)  != NULL) (r = operacaoS    (token,s));
-    if (strstr("clifst"     ,token)  != NULL) (r = convercoes(token,s));
-    if (strstr("<>=!?e<e>"  ,token)  != NULL) (r = comparacao (token,s));
-
-    return r;
+    if (notBit (s, token) || xorBit (s, token) || orBit (s, token) || andBit (s, token) || modulo (s, token) || divisao (s, token) || multiplicacao (s, token) || exponencializacao (s, token) || incrementar (s, token) || decrementar (s, token) || add (s, token) || sub (s, token)) return 1;
+    else return 0;
 }
 
-void decideoperacoes(char *token, STACK *s)
+//! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
+int handleG2 (STACK *s, char *token)
 {
-    int r = operacoesparser (token,s);
-    if (r==0) operacoesparser(token, s);
+    if (intParaChar (s, token) || troca2Topo (s, token) || copiaNesimo (s, token) || popG2 (s, token) || duplicar (s, token) || rodar3 (s, token)) return 1;
+    else return 0;
 }
 
-
-void atribui (DATA *var)
+//! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
+int handleG3 (STACK *s, char *token)
 {
-    int i = 10; char a = 'A'; char b = 'X'; int j = 0;
-        while (a<='F')
-        {
-            var [a-65].t = 1;
-            var [a-65].data.l=i;
-            a++; i++;
-        }
-        while (b<='Z')
-        {
-            var [b-65].t = 1;
-            var [b-65].data.l = j;
-            a++;i++;
-        }
-        var['S'-65].t=4;
-        var['S'-65].data.c=' ';
-        var['N'-65].t=4;
-        var['N'-65].data.c='\n';
+    if (capB (s, token) || capA (s, token) || menorDosDois (s, token) || maiorDosDois (s, token) || menor (s, token) || maior (s, token) || nao (s, token) || ouShortcut (s, token) || eShortcut (s, token) || buscaPorIndice (s, token) || IfThenElse (s, token)) return 1;
+    else return 0;
 }
 
-void printS(STACK *s)
+int handleG4 (STACK *s, char *token)
 {
-    int i;
-    for (i = 0; i < s->sp; i++) {
-        printD (s->pilha[i]);
-    }
+    if (range (s, token)) return 1;
+    else return 0;
 }
 
-
-void printD (DATA x)
+//! Funcao handle principal
+int mainHandle (STACK *s, char *token)
 {
-    switch (x.t)
+    if (handleG3 (s, token) || handleG2 (s, token) || handleG1 (s, token) || handleG4 (s, token)) return 1;
+    else return 0;
+}
+
+void parser (STACK *s, char *token)
+{
+    char *sobra;
+
+    long val_i = strtol (token, &sobra, 10);
+    if (strlen (sobra) == 0)
     {
-        case LONG : printf("%ld", x.data.l); break;
-        case DOUBLE : printf("%g", x.data.d); break;
-        case CHAR : printf("%c", x.data.c); break;
-        case STRING : printf("%s", x.data.str); break;
-        default : break;
+        DATA p = cria_Long (val_i);
+        push (s, p);
     }
-}
 
-void parser (char *linha, STACK *s)
-{
-    STACK *choose;
-    DATA variaveis [26];
-    atribui(variaveis);
-
-    char *token = strtok(linha, " \t\n");
-
-   {
-       char *sobra;
-
-       long val_i = strtol(token, &sobra, 10);
-        if (strlen(sobra) == 0)
+    else
+    {
+        double val_d = strtod (token, &sobra);
+        if (strlen (sobra) == 0)
         {
-            pushl(choose, val_i);
+            DATA p = cria_Double (val_d);
+            push (s, p);
         }
 
-        else
+        else 
         {
-            double val_d = strtod(token, &sobra);
-            if (strlen(sobra) == 0)
-            {
-                pushd(choose, val_d);
-            }
-
-            else 
-            {
-                if ((strstr("+-*/()%#&|^~e&e|_;\\@$clifts<>=!?e<e>,", token) != NULL)) decideoperacoes(token, s);
-            }
+            if ((strstr("+-*/()%#&|^~e&e|_;\\@$clifts<>=!?e<e>,", token) != NULL)) mainHandle(s, token);
         }
-   } 
+    }
+} 
 
-   printS (s);
-   putchar ('\n');
-}

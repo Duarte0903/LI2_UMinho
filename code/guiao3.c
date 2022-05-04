@@ -11,64 +11,69 @@
 //! Da push a 11
 int capB (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "B")==0)
     {
         long x = 11;
         DATA y = cria_Long (x);
         push (s, y);
-        return 1;
+        r = 1;
     }
-    return 0;
+    return r;
 }
 
 //! Da push a 10
 int capA (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "A")==0)
     {
         long x = 10;
         DATA y = cria_Long (x);
         push (s, y);
-        return 1;
+        r = 1;
     }
-    return 0;
+    return r;
 }
 
 //! Coloca no topo da stack o menor de dois numeros
 int menorDosDois (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "e<")==0)
     {
         DATA x = pop (s);
-        DATA y = pop (s);
-        double w = x.elem.d;
-        double z = y.elem.d;
-        if (z<w) push (s, y);
-        else push (s, x);
-        return 1;
+        DATA y = pop (s);    
+        if (x.elem.d < y.elem.d) push (s,x);
+        else push (s, y);
+        r = 1;
     }
-    return 0;
+    return r;
 }
 
 //! Coloca no topo da stack o maior de dois numeros
 int maiorDosDois (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "e>")==0)
     {
         DATA x = pop (s);
         DATA y = pop (s);
-        double w = x.elem.d;
-        double z = y.elem.d;
-        if (z>w) push (s, y);
-        else push (s, x);
-        return 1;
+        if (x.elem.d > y.elem.d) push (s, x);
+        else push (s, y);
+        r = 1;
     }
-    return 0;
+    return r;
 }
 
 //! Se um numero e menor que outro coloca 1 na strack. Caso contrario 0
 int menor (STACK *s, char *token)
 {
+    int r = 0;
     if (strcmp (token, "<")==0)
     {
         DATA x = pop (s);
@@ -78,28 +83,31 @@ int menor (STACK *s, char *token)
         {
             if (y.elem.l < x.elem.l) push (s, cria_Long (1));
             else push (s, cria_Long (0));
+            r = 1;
         }
 
         if ((x.tipo == LONG && y.tipo == DOUBLE) || (x.tipo == DOUBLE && y.tipo == LONG))
         {
             if (y.elem.l < x.elem.l) push (s, cria_Long (1));
-            else push (s, cria_Long (0));
+            else push (s, cria_Long (0));\
+            r = 1;
         }
         
         if (x.tipo == DOUBLE && y.tipo == DOUBLE)
         {
             if (y.elem.d < x.elem.d) push (s, cria_Long (1));
             else push (s, cria_Long (0));
+            r = 1;
         }
-
-        return 1;
     }
-    return 0;
+    return r;
 }
 
 //! Se um numero e maior que outro coloca 1 na strack. Caso contrario 0
 int maior (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, ">")==0)
     {
         DATA x = pop (s);
@@ -109,23 +117,24 @@ int maior (STACK *s, char *token)
         {
             if (y.elem.l > x.elem.l) push (s, cria_Long (1));
             else push (s, cria_Long (0));
+            r = 1;
         }
 
         if ((x.tipo == LONG && y.tipo == DOUBLE) || (x.tipo == DOUBLE && y.tipo == LONG))
         {
             if (y.elem.l > x.elem.l) push (s, cria_Long (1));
             else push (s, cria_Long (0));
+            r = 1;
         }
         
         if (x.tipo == DOUBLE && y.tipo == DOUBLE)
         {
             if (y.elem.d > x.elem.d) push (s, cria_Long (1));
             else push (s, cria_Long (0));
+            r = 1;
         }
-
-        return 1;
     }
-    return 0;
+    return r;
 }
 
 /*!
@@ -137,14 +146,16 @@ int maior (STACK *s, char *token)
  */
 int nao (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "!")==0)
     {
         DATA x = pop (s);
         if (x.elem.l == 0) push (s, cria_Long (1));
         else push (s, x);
-        return 1;
+        r = 1;
     }
-    return 0;
+    return r;
 }
 
 //! Operador logico "ou"
@@ -154,17 +165,37 @@ int nao (STACK *s, char *token)
  */
 int ouShortcut (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "e|")==0)
     {
         DATA x = pop (s);
         DATA y = pop (s);
-        if (y.elem.l == 0 && x.elem.l != 0) push (s, x);
-        if (x.elem.l == 0 && y.elem.l != 0) push (s, y);
-        if (x.elem.l == 1 && y.elem.l != 0) push (s, cria_Long (1));
-        if (y.elem.l == 1 && x.elem.l != 0) push (s, cria_Long (1));
-        return 1;
+        if (y.elem.l == 0 && x.elem.l != 0)
+        {
+            push (s, x); 
+            r = 1;
+        }
+
+        if (x.elem.l == 0 && y.elem.l != 0) 
+        {
+            push (s, y); 
+            r = 1;
+        }
+
+        if (x.elem.l == 1 && y.elem.l != 0) 
+        {
+            push (s, cria_Long (1)); 
+            r = 1;
+        }
+
+        if (y.elem.l == 1 && x.elem.l != 0) 
+        {
+            push (s, cria_Long (1)); 
+            r = 1;
+        }
     }
-    return 0;
+    return r;
 }
 
 //! Operador logico "e"
@@ -174,16 +205,31 @@ int ouShortcut (STACK *s, char *token)
  */
 int eShortcut (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "e&")==0)
     {
         DATA x = pop (s);
         DATA y = pop (s);
-        if (y.elem.l == 0 || x.elem.l == 0) push (s, cria_Long (0));
-        if (x.elem.l == 1) push (s, y);
-        if (y.elem.l == 1) push (s, x);
-        return 1;
+        if (y.elem.l == 0 || x.elem.l == 0) 
+        {
+            push (s, cria_Long (0));
+            r = 1;
+        }
+
+        if (x.elem.l == 1) 
+        {
+            push (s, y); 
+            r = 1;
+        }
+
+        if (y.elem.l == 1) 
+        {
+            push (s, x); 
+            r = 1;
+        }
     }
-    return 0;
+    return r;
 }
 
 //! Procura o indice de um numero
@@ -193,6 +239,8 @@ int eShortcut (STACK *s, char *token)
  */
 int buscaPorIndice (STACK *s, char *token) 
 {
+    int r = 0;
+
     if (strcmp (token, "=")==0)
     {
         int i, flag = 0, index;
@@ -210,12 +258,19 @@ int buscaPorIndice (STACK *s, char *token)
             else pop (s);
         }
 
-        if (flag != 0) push (s, cria_Long (index));
-        else push (s, cria_Long (0));
+        if (flag != 0) 
+        {
+            push (s, cria_Long (index)); 
+            r = 1;
+        }
 
-        return 1;
+        else 
+        {
+            push (s, cria_Long (0)); 
+            r = 1;
+        }
     }
-    return 0;
+    return r;
 }
 
 //! IF x diferente de zero THEN y ELSE z
@@ -228,6 +283,8 @@ int buscaPorIndice (STACK *s, char *token)
  */
 int IfThenElse (STACK *s, char *token)
 {
+    int r = 0;
+
     if (strcmp (token, "?")==0)
     {
         DATA x = pop (s);
@@ -235,7 +292,7 @@ int IfThenElse (STACK *s, char *token)
         DATA z = pop (s);
         if (z.elem.l != 0) push (s, y);
         else push (s, x);
-        return 1;
+        r = 1;
     }
-    return 0;
+    return r;
 }

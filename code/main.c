@@ -6,37 +6,28 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <assert.h>
 #include "stack.h"
-
 
 //! Funcao main. Obtem o input e invoca a funcao handle para devolver o output
 int main ()
 {
     STACK *s = new_stack ();
 
-    char linha[10240];
+    char linha[BUFSIZ], token[BUFSIZ];
 
-    assert (fgets(linha, 10240, stdin) != NULL);
-    assert (linha[strlen(linha) -1] == '\n');
-
-    int flagMain = 0;
-
-    for (unsigned int i=0; i < strlen(linha)-1; i++)
+    if (fgets (linha, BUFSIZ, stdin) != NULL)
     {
-        if (flagMain == 1)
+        while (sscanf (linha, "%s%[^\n]", token, linha) == 2)
         {
-            if (linha[i] == ' ') linha[i] = '.';
-            if (linha[i] == '"') flagMain = 0 ;
+            parser (s, token);
         }
-        else
-        {
-            if (linha[i] == '"') flagMain = 1 ;
-        }
-    }
+        parser (s, token);
 
-    parser (linha, s);
+        printStack (s);
+
+        putchar ('\n');
+    }
 
     return 0;
 }
+
