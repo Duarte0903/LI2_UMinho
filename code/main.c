@@ -6,56 +6,37 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <assert.h>
 #include "stack.h"
 
-//! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
-int handleG1 (STACK *s, char *token)
-{
-    if (notBit (s, token) || xorBit (s, token) || orBit (s, token) || andBit (s, token) || modulo (s, token) || divisao (s, token) || multiplicacao (s, token) || exponencializacao (s, token) || incrementar (s, token) || decrementar (s, token) || add (s, token) || sub (s, token)) return 1;
-    else return 0;
-}
-
-//! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
-int handleG2 (STACK *s, char *token)
-{
-    if (intParaChar (s, token) || troca2Topo (s, token) || copiaNesimo (s, token) || popG2 (s, token) || duplicar (s, token) || rodar3 (s, token)) return 1;
-    else return 0;
-}
-
-//! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
-int handleG3 (STACK *s, char *token)
-{
-    if (capB (s, token) || capA (s, token) || menorDosDois (s, token) || maiorDosDois (s, token) || menor (s, token) || maior (s, token) || nao (s, token) || ouShortcut (s, token) || eShortcut (s, token) || buscaPorIndice (s, token) || IfThenElse (s, token)) return 1;
-    else return 0;
-}
-
-//! Funcao handle principal
-int mainHandle (STACK *s, char *token)
-{
-    if (handleG3 (s, token) || handleG2 (s, token) || handleG1 (s, token)) return 1;
-    else return 0;
-}
 
 //! Funcao main. Obtem o input e invoca a funcao handle para devolver o output
 int main ()
 {
     STACK *s = new_stack ();
 
-    char linha[BUFSIZ], token[BUFSIZ];
+    char linha[10240];
 
-    if (fgets (linha, BUFSIZ, stdin) != NULL)
+    assert (fgets(linha, 10240, stdin) != NULL);
+    assert (linha[strlen(linha) -1] == '\n');
+
+    int flagMain = 0;
+
+    for (unsigned int i=0; i < strlen(linha)-1; i++)
     {
-        while (sscanf (linha, "%s%[^\n]", token, linha) == 2)
+        if (flagMain == 1)
         {
-            mainHandle (s, token);
+            if (linha[i] == ' ') linha[i] = '.';
+            if (linha[i] == '"') flagMain = 0 ;
         }
-        mainHandle (s, token);
-
-        printStack (s);
-
-        putchar ('\n');
+        else
+        {
+            if (linha[i] == '"') flagMain = 1 ;
+        }
     }
+
+    parser (linha, s);
 
     return 0;
 }
-
