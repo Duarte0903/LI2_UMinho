@@ -42,8 +42,8 @@ typedef struct stack
 int handleG1 (STACK *s, char *token);
 int handleG2 (STACK *s, char *token);
 int handleG3 (STACK *s, char *token);
-int mainHandle (STACK *s, char *token);
-
+int handleG4 (STACK *s, char *token, int flag);
+int mainHandle (STACK *s, char *token, int flag);
 void parser (STACK *s, char *token);
 
 STACK *new_stack ();
@@ -90,5 +90,7 @@ int eShortcut (STACK *s, char *token);
 int buscaPorIndice (STACK *s, char *token);
 int IfThenElse (STACK *s, char *token);
 
-int criaArray (STACK *s, char *token);
+int criaString (STACK *s, char *token);
+int abreParReto (STACK *s, char *token, int flag);
+int criaArray (STACK *s, char *token, int flag);
 int range (STACK *s, char *token);

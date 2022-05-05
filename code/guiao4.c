@@ -5,6 +5,7 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "stack.h"
 
@@ -12,51 +13,49 @@
 int criaString (STACK *s, char *token)
 {
     int r = 0;
-    int flag = 0;
-    char str[100];
 
-    if (strcmp (token, "\"")==0)
+    if (strchr (token, 34) != NULL && strlen (token) > 1)
     {
-        flag = s -> sp;
-
-        if (strcmp (token, "\"")==0)
-        {
-            for (int i = flag; i>=0; i--)
-            {
-                DATA x = pop (s);
-                char c = x.elem.c;
-                str[i] = c;
-            }
-
-            DATA p = cria_string (str);
-
-            push (s, p);
-        } 
-        r = 1;       
+        DATA x = cria_string (token);
+        push (s, x);
+        r = 1;
     }
     return r;
 }
 
 //! Da push a um array na stack FIX !!!
-int criaArray (STACK *s, char *token)
+int criaArray (STACK *s, char *token, int flag)
 {
     int r = 0;
 
     if (strcmp (token, "]")==0)
     {
-        STACK *arr = new_stack ();
+        STACK *new = new_stack();
 
-        while (strcmp (token, "[") == 1)
+        for (int i = s -> sp; i>=flag; i--)
         {
             DATA x = pop (s);
-            push (arr, x);
+            push (new, x);
         }
 
-        DATA y = cria_array (arr);
+        DATA p = cria_array (new);
+        push (s, p);
 
-        push (s, y);
-
+        flag = 0;
         r = 1; 
+    }
+    return r;
+}
+
+int abreParReto (STACK *s, char *token, int flag)
+{
+    int r = 0;
+
+    if (strcmp (token, "[")==0)
+    {
+        flag += s -> sp;
+
+        r = 1;
     }
     return r;
 }
@@ -83,7 +82,7 @@ int range (STACK *s, char *token)
 
             for (int i = 0; i < range; i++)
             {
-                push (s, cria_Long(i));
+                push (s, cria_Long(i));     // PUSH a LONG ou ARRAY ??
             }
 
             r = 1; 
@@ -91,11 +90,7 @@ int range (STACK *s, char *token)
 
         if (x.tipo == ARRAY)
         {
-            long range = 0;
-
-            for (int i = x.elem.arr -> sp; i >= 0; i--) range ++;
-
-            push (s, cria_Long (range));
+            
 
             r = 1;
         }

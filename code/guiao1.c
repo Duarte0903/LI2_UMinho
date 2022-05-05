@@ -210,6 +210,15 @@ int multiplicacao (STACK *s, char *token)
             }
             r = 1;
         }
+
+        if (x.tipo == ARRAY && y.tipo == LONG)
+        {
+            for (int i = y.elem.l; i>0; i--)
+            {
+                push (s, x);
+            }
+            r = 1;
+        }
     }
     return r;
 }
@@ -285,7 +294,7 @@ int incrementar (STACK *s, char *token)
 
          if (x.tipo == DOUBLE)
         {
-            int y = x.elem.d + 1;
+            double y = x.elem.d + 1;
             DATA w = cria_Double (y);
             push (s, w);
             r = 1;
@@ -313,7 +322,7 @@ int decrementar (STACK *s, char *token)
 
          if (x.tipo == DOUBLE)
         {
-            int y = x.elem.d - 1;
+            double y = x.elem.d - 1;
             DATA w = cria_Double (y);
             push (s, w);
             r = 1;

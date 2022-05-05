@@ -70,11 +70,22 @@ DATA cria_string (char *s)
     return x;
 }
 
+void cpyArr (STACK *a1, STACK *a2)
+{
+    for (int i = a1 -> sp; i >= 0; i--)
+    {
+        DATA x = pop (a1);
+        push (a2, x);
+    }
+}
+
 DATA cria_array (STACK *arr)
 {
     DATA x;
     x.tipo = ARRAY;
     x.elem.arr = arr;
+    printStack (x.elem.arr);   // Apenas debugging
+    putchar ('\n');
     return x;
 }
 
@@ -83,9 +94,10 @@ void printStack (STACK *s)
 {
     for (int i = 0; i <= s -> sp; i++)
     {
-        if (s -> stack[i].tipo == LONG) printf("%ld", s->stack[i].elem.l);
-        if (s -> stack[i].tipo == DOUBLE) printf("%f", s->stack[i].elem.d);
-        if (s -> stack[i].tipo == CHAR) printf("%c", s->stack[i].elem.c);
+        if (s -> stack[i].tipo == LONG) printf("%ld", s -> stack[i].elem.l);
+        if (s -> stack[i].tipo == DOUBLE) printf("%g", s -> stack[i].elem.d);
+        if (s -> stack[i].tipo == CHAR) printf("%c", s -> stack[i].elem.c);
+        if (s -> stack[i].tipo == STRING) printf ("%s", s -> stack[i].elem.str);
         if (s -> stack[i].tipo == ARRAY) printStack (s -> stack[i].elem.arr);
     }
 }
