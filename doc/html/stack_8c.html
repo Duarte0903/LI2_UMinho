@@ -75,7 +75,9 @@ $(function() {
 <p>Operacoes da stack.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="stack_8h_source.html">stack.h</a>&quot;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for stack.c:</div>
 <div class="dyncontent">
@@ -88,17 +90,45 @@ Include dependency graph for stack.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4002d1ff72ad115103ac2daef3200bc5"><td class="memItemLeft" align="right" valign="top"><a id="a4002d1ff72ad115103ac2daef3200bc5"></a>
-<a class="el" href="structSTACK.html">STACK</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#a4002d1ff72ad115103ac2daef3200bc5">new_stack</a> ()</td></tr>
+<a class="el" href="stack_8h.html#ade8bb1f37e07eb511f3873082665d739">STACK</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#a4002d1ff72ad115103ac2daef3200bc5">new_stack</a> ()</td></tr>
 <tr class="memdesc:a4002d1ff72ad115103ac2daef3200bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria uma nova stack. <br /></td></tr>
 <tr class="separator:a4002d1ff72ad115103ac2daef3200bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6951677634bc532fc5a003441d4adf3a"><td class="memItemLeft" align="right" valign="top"><a id="a6951677634bc532fc5a003441d4adf3a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#a6951677634bc532fc5a003441d4adf3a">pop</a> (<a class="el" href="structSTACK.html">STACK</a> *s)</td></tr>
-<tr class="memdesc:a6951677634bc532fc5a003441d4adf3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vai buscar um elemento ao topo da stack. <br /></td></tr>
-<tr class="separator:a6951677634bc532fc5a003441d4adf3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ff3daf71c44e6c58023663f72b35ffc"><td class="memItemLeft" align="right" valign="top"><a id="a1ff3daf71c44e6c58023663f72b35ffc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#a1ff3daf71c44e6c58023663f72b35ffc">push</a> (<a class="el" href="structSTACK.html">STACK</a> *s, char elem)</td></tr>
-<tr class="memdesc:a1ff3daf71c44e6c58023663f72b35ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">coloca um elemento no topo da stack <br /></td></tr>
-<tr class="separator:a1ff3daf71c44e6c58023663f72b35ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28bdc96407c992586646198197537cd1"><td class="memItemLeft" align="right" valign="top"><a id="a28bdc96407c992586646198197537cd1"></a>
+<a class="el" href="structDATA.html">DATA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#a28bdc96407c992586646198197537cd1">pop</a> (<a class="el" href="stack_8h.html#ade8bb1f37e07eb511f3873082665d739">STACK</a> *s)</td></tr>
+<tr class="memdesc:a28bdc96407c992586646198197537cd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vai buscar um elemento ao topo da stack. <br /></td></tr>
+<tr class="separator:a28bdc96407c992586646198197537cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e86b7a7ef501bffae1ec8c82a0220eb"><td class="memItemLeft" align="right" valign="top"><a id="a1e86b7a7ef501bffae1ec8c82a0220eb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#a1e86b7a7ef501bffae1ec8c82a0220eb">push</a> (<a class="el" href="stack_8h.html#ade8bb1f37e07eb511f3873082665d739">STACK</a> *s, <a class="el" href="structDATA.html">DATA</a> elem)</td></tr>
+<tr class="memdesc:a1e86b7a7ef501bffae1ec8c82a0220eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">coloca um elemento no topo da stack <br /></td></tr>
+<tr class="separator:a1e86b7a7ef501bffae1ec8c82a0220eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a484acdc2576c4e8287107f0d718b4e2c"><td class="memItemLeft" align="right" valign="top"><a id="a484acdc2576c4e8287107f0d718b4e2c"></a>
+<a class="el" href="structDATA.html">DATA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#a484acdc2576c4e8287107f0d718b4e2c">cria_Long</a> (long l)</td></tr>
+<tr class="memdesc:a484acdc2576c4e8287107f0d718b4e2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforma um long em <a class="el" href="structDATA.html" title="Definicao do tipo de dados que vai ser guardado na stack.">DATA</a>. <br /></td></tr>
+<tr class="separator:a484acdc2576c4e8287107f0d718b4e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14129e110ab041d0db0ccb3b53ce5929"><td class="memItemLeft" align="right" valign="top"><a id="a14129e110ab041d0db0ccb3b53ce5929"></a>
+<a class="el" href="structDATA.html">DATA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#a14129e110ab041d0db0ccb3b53ce5929">cria_Double</a> (double d)</td></tr>
+<tr class="memdesc:a14129e110ab041d0db0ccb3b53ce5929"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforma um double em <a class="el" href="structDATA.html" title="Definicao do tipo de dados que vai ser guardado na stack.">DATA</a>. <br /></td></tr>
+<tr class="separator:a14129e110ab041d0db0ccb3b53ce5929"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8957677485d9a90b87f2a13b969db63"><td class="memItemLeft" align="right" valign="top"><a id="aa8957677485d9a90b87f2a13b969db63"></a>
+<a class="el" href="structDATA.html">DATA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#aa8957677485d9a90b87f2a13b969db63">cria_Char</a> (char c)</td></tr>
+<tr class="memdesc:aa8957677485d9a90b87f2a13b969db63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforma um char em <a class="el" href="structDATA.html" title="Definicao do tipo de dados que vai ser guardado na stack.">DATA</a>. <br /></td></tr>
+<tr class="separator:aa8957677485d9a90b87f2a13b969db63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d89f8a0328b1855d859b6d49475a55d"><td class="memItemLeft" align="right" valign="top"><a id="a9d89f8a0328b1855d859b6d49475a55d"></a>
+<a class="el" href="structDATA.html">DATA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#a9d89f8a0328b1855d859b6d49475a55d">cria_string</a> (char *s)</td></tr>
+<tr class="memdesc:a9d89f8a0328b1855d859b6d49475a55d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforma uma string em <a class="el" href="structDATA.html" title="Definicao do tipo de dados que vai ser guardado na stack.">DATA</a>. <br /></td></tr>
+<tr class="separator:a9d89f8a0328b1855d859b6d49475a55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac21726dbdda15bb3e25a2d51c373ba76"><td class="memItemLeft" align="right" valign="top"><a id="ac21726dbdda15bb3e25a2d51c373ba76"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#ac21726dbdda15bb3e25a2d51c373ba76">cpyArr</a> (<a class="el" href="stack_8h.html#ade8bb1f37e07eb511f3873082665d739">STACK</a> *a1, <a class="el" href="stack_8h.html#ade8bb1f37e07eb511f3873082665d739">STACK</a> *a2)</td></tr>
+<tr class="memdesc:ac21726dbdda15bb3e25a2d51c373ba76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfere elementos entre arrays. <br /></td></tr>
+<tr class="separator:ac21726dbdda15bb3e25a2d51c373ba76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eadab0f6ef99e3a6bef2844815ea0b6"><td class="memItemLeft" align="right" valign="top"><a id="a1eadab0f6ef99e3a6bef2844815ea0b6"></a>
+<a class="el" href="structDATA.html">DATA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#a1eadab0f6ef99e3a6bef2844815ea0b6">cria_array</a> (<a class="el" href="stack_8h.html#ade8bb1f37e07eb511f3873082665d739">STACK</a> *arr)</td></tr>
+<tr class="memdesc:a1eadab0f6ef99e3a6bef2844815ea0b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforma um array em <a class="el" href="structDATA.html" title="Definicao do tipo de dados que vai ser guardado na stack.">DATA</a>. <br /></td></tr>
+<tr class="separator:a1eadab0f6ef99e3a6bef2844815ea0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae653d5112b3b887d77ba1655d00f8b9b"><td class="memItemLeft" align="right" valign="top"><a id="ae653d5112b3b887d77ba1655d00f8b9b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8c.html#ae653d5112b3b887d77ba1655d00f8b9b">printStack</a> (<a class="el" href="stack_8h.html#ade8bb1f37e07eb511f3873082665d739">STACK</a> *s)</td></tr>
+<tr class="memdesc:ae653d5112b3b887d77ba1655d00f8b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Da print aos elementos da stack. <br /></td></tr>
+<tr class="separator:ae653d5112b3b887d77ba1655d00f8b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Operacoes da stack. </p>

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['orbit_31',['orBit',['../guiao1_8c.html#a87ddb45957ad31e8fbf872fcb980e4fe',1,'orBit(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#a87ddb45957ad31e8fbf872fcb980e4fe',1,'orBit(STACK *s, char *token):&#160;guiao1.c']]],
-  ['oushortcut_32',['ouShortcut',['../guiao3_8c.html#a04602f5f721cb6b15246ac0e3e807cb9',1,'ouShortcut(STACK *s, char *token):&#160;guiao3.c'],['../stack_8h.html#a04602f5f721cb6b15246ac0e3e807cb9',1,'ouShortcut(STACK *s, char *token):&#160;guiao3.c']]]
+  ['nao_41',['nao',['../guiao3_8c.html#a76ff7d6b08b94ad07f4ef81feee6802c',1,'nao(STACK *s, char *token):&#160;guiao3.c'],['../stack_8h.html#a76ff7d6b08b94ad07f4ef81feee6802c',1,'nao(STACK *s, char *token):&#160;guiao3.c']]],
+  ['new_5fstack_42',['new_stack',['../stack_8c.html#a4002d1ff72ad115103ac2daef3200bc5',1,'new_stack():&#160;stack.c'],['../stack_8h.html#a4002d1ff72ad115103ac2daef3200bc5',1,'new_stack():&#160;stack.c']]],
+  ['notbit_43',['notBit',['../guiao1_8c.html#ab5cedecfc57357268d3f1bc2251e41c2',1,'notBit(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#ab5cedecfc57357268d3f1bc2251e41c2',1,'notBit(STACK *s, char *token):&#160;guiao1.c']]]
 ];

@@ -133,6 +133,27 @@ int maior (STACK *s, char *token)
             else push (s, cria_Long (0));
             r = 1;
         }
+
+        if (x.tipo == LONG && y.tipo == ARRAY)
+        {
+            int n = x.elem.l;
+            STACK *new = new_stack();
+
+            for (int i = y.elem.arr -> sp; i >= 0; i--)
+            {
+                if (i>=(n-1))
+                {
+                    DATA x = pop (y.elem.arr);
+                    push (new, x);
+                }
+            }
+
+            DATA p = cria_array (new);
+
+            push (s, p);
+
+            r = 1;
+        }
     }
     return r;
 }
@@ -245,29 +266,96 @@ int buscaPorIndice (STACK *s, char *token)
     {
         int i, flag = 0, index;
         DATA x = pop (s);
-        long indice = x.elem.l;
+        DATA y = pop (s);
 
-        for (i = s -> sp; i > 0; i--)
+        if ((y.tipo == LONG || y.tipo == DOUBLE) && x.tipo == LONG)
         {
-            if (s -> stack[i].elem.l == indice)
+            long indice = x.elem.l;
+
+            push (s, y);
+
+            for (i = s -> sp; i >= 0; i--)
             {
-                pop (s);
-                index = i;
-                flag = 1;
+                if (s -> stack[i].elem.l == indice)
+                {
+                    pop (s);
+                    index = i;
+                    flag = 1;
+                }
+                else pop (s);
             }
-            else pop (s);
+
+            if (flag != 0) 
+            {
+                push (s, cria_Long (index+1)); 
+                r = 1;
+            }
+
+            else 
+            {
+                push (s, cria_Long (0)); 
+                r = 1;
+            }
         }
 
-        if (flag != 0) 
+        if ((y.tipo == LONG || y.tipo == DOUBLE) && x.tipo == DOUBLE)
         {
-            push (s, cria_Long (index)); 
-            r = 1;
+            double indice = x.elem.d;
+
+            push (s, y);
+
+            for (i = s -> sp; i >= 0; i--)
+            {
+                if (s -> stack[i].elem.d == indice)
+                {
+                    pop (s);
+                    index = i;
+                    flag = 1;
+                }
+                else pop (s);
+            }
+
+            if (flag != 0) 
+            {
+                push (s, cria_Long (index+1)); 
+                r = 1;
+            }
+
+            else 
+            {
+                push (s, cria_Long (0)); 
+                r = 1;
+            }
         }
 
-        else 
+        if (y.tipo == ARRAY && x.tipo == LONG)
         {
-            push (s, cria_Long (0)); 
-            r = 1;
+            long indice = x.elem.l;
+
+            DATA indexArr;
+
+            for (i = y.elem.arr -> sp; i >= 0; i--)
+            {
+                if (y.elem.arr -> sp == indice + 1)
+                {
+                    pop (y.elem.arr);
+                    indexArr = y.elem.arr -> stack[y.elem.arr -> sp];
+                    flag = 1;
+                }
+                else pop (y.elem.arr);
+            }
+
+            if (flag != 0) 
+            {
+                push (s, indexArr); 
+                r = 1;
+            }
+
+            else 
+            {
+                push (s, cria_Long (0)); 
+                r = 1;
+            }
         }
     }
     return r;

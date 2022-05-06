@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['guiao1_2ec_10',['guiao1.c',['../guiao1_8c.html',1,'']]],
-  ['guiao2_2ec_11',['guiao2.c',['../guiao2_8c.html',1,'']]],
-  ['guiao3_2ec_12',['guiao3.c',['../guiao3_8c.html',1,'']]]
+  ['fechaparreto_20',['fechaParReto',['../guiao4_8c.html#af59d4b8e39339e699fc7b8357ae59b73',1,'fechaParReto(STACK *s, char *token, int flag):&#160;guiao4.c'],['../stack_8h.html#af59d4b8e39339e699fc7b8357ae59b73',1,'fechaParReto(STACK *s, char *token, int flag):&#160;guiao4.c']]]
 ];

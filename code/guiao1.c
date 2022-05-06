@@ -5,6 +5,7 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include "stack.h"
@@ -17,10 +18,31 @@ int notBit (STACK *s, char *token)
     if (strcmp (token, "~")==0)
     {
         DATA x = pop (s);
-        long y = ~(x.elem.l);
-        DATA z = cria_Long (y);
-        push (s, z);
-        r = 1;
+
+        if (x.tipo == LONG)
+        {
+            long y = ~(x.elem.l);
+            DATA z = cria_Long (y);
+            push (s, z);
+            r = 1;
+        } 
+
+        if (x.tipo == ARRAY)  // FIX !!!
+        {
+            STACK *temp = new_stack();
+
+            while (x.elem.arr -> sp >= 0)
+            {
+                DATA p = pop (x.elem.arr);
+                push (temp, p);
+            }
+
+            while (x.elem.arr -> sp >= 0)
+            {
+                DATA p = pop (temp);
+                push (s, p);
+            }
+        }
     }
     return r;
 }
@@ -202,20 +224,11 @@ int multiplicacao (STACK *s, char *token)
             r = 1;
         }
 
-        if (x.tipo == ARRAY && y.tipo == LONG)
+        if (x.tipo == LONG && y.tipo == ARRAY)
         {
-            for (int i = y.elem.l; i>0; i--)
+            for (int i = x.elem.l; i>0; i--)
             {
-                push (s, x);
-            }
-            r = 1;
-        }
-
-        if (x.tipo == ARRAY && y.tipo == LONG)
-        {
-            for (int i = y.elem.l; i>0; i--)
-            {
-                push (s, x);
+                push (s, y);
             }
             r = 1;
         }
@@ -327,6 +340,17 @@ int decrementar (STACK *s, char *token)
             push (s, w);
             r = 1;
         }
+
+        if (x.tipo == ARRAY)
+        {
+            DATA x = pop (x.elem.arr);
+            DATA y = pop (x.elem.arr);
+            DATA z = pop (x.elem.arr);
+            push (x.elem.arr, y);
+            push (x.elem.arr, x);
+            push (x.elem.arr, z);
+            push (s, x);
+        }
     }
     return r;
 }
@@ -381,6 +405,7 @@ int sub (STACK *s, char *token)
 }
 
 //! vai buscar dois numeros a stack e coloca no topo a sua soma
+//! Concatena elementos com arrays e arrays com arrays
 int add (STACK *s, char *token)
 {
     int r = 0;
@@ -426,37 +451,11 @@ int add (STACK *s, char *token)
             r = 1;
         }
 
-        if (x.tipo == ARRAY && y.tipo == DOUBLE)
-        {
-            push (x.elem.arr, y);
-            r = 1;
-        }
-
-        if (x.tipo == DOUBLE && y.tipo == ARRAY)
-        {
-            push (y.elem.arr, x);
-            r = 1;
-        }
-
-        if (x.tipo == ARRAY && y.tipo == LONG)
-        {
-            push (x.elem.arr, y);
-            r = 1;
-        }
-
-        if (x.tipo == LONG && y.tipo == ARRAY)
-        {
-            push (y.elem.arr, x);
-            r = 1;
-        }
-
         if (x.tipo == ARRAY && y.tipo == ARRAY)
         {
-            while (y.elem.arr != NULL)
-            {
-                DATA x = pop (y.elem.arr);
-                push (x.elem.arr, x);
-            }
+            cpyArr (x.elem.arr, x.elem.arr);
+            cpyArr (y.elem.arr, x.elem.arr);
+            push (s, y);
             r = 1;
         }
     }

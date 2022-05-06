@@ -47,6 +47,7 @@ int mainHandle (STACK *s, char *token, int flag);
 void parser (STACK *s, char *token);
 
 STACK *new_stack ();
+void cpyArr (STACK *a1, STACK *a2);
 void printStack (STACK *s);
 DATA pop (STACK *s);
 void push (STACK *s, DATA elem);
@@ -92,5 +93,5 @@ int IfThenElse (STACK *s, char *token);
 
 int criaString (STACK *s, char *token);
 int abreParReto (STACK *s, char *token, int flag);
-int criaArray (STACK *s, char *token, int flag);
+int fechaParReto (STACK *s, char *token, int flag);
 int range (STACK *s, char *token);

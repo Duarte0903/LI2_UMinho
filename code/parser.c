@@ -30,9 +30,10 @@ int handleG3 (STACK *s, char *token)
     else return 0;
 }
 
+//! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
 int handleG4 (STACK *s, char *token, int flag)
 {
-    if (criaString (s, token) || abreParReto (s, token,flag) || criaArray (s, token, flag) || range (s, token)) return 1;
+    if (criaString (s, token) || abreParReto (s, token,flag) || fechaParReto (s, token, flag) || range (s, token)) return 1;
     else return 0;
 }
 
@@ -43,10 +44,11 @@ int mainHandle (STACK *s, char *token, int flag)
     else return 0;
 }
 
+//! Vai atribuir um tipo do enum ao input
 void parser (STACK *s, char *token)
 {
     char *sobra;
-    int flag = 0;
+    int flagArrays = 0;
 
     long val_i = strtol (token, &sobra, 10);
     if (strlen (sobra) == 0)
@@ -66,7 +68,7 @@ void parser (STACK *s, char *token)
 
         else 
         {
-            if ((strstr("+-*/()%#&|^~e&e|_;\\@$clifts<>=!?e<e>,[]\"", token) != NULL)) mainHandle (s, token, flag);
+            if ((strstr("+-*/()%#&|^~e&e|_;\\@$clifts<>=!?e<e>,[]\"", token) != NULL)) mainHandle (s, token, flagArrays);
         }
     }
 } 

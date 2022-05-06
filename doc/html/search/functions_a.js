@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['pop_82',['pop',['../stack_8c.html#a6951677634bc532fc5a003441d4adf3a',1,'pop(STACK *s):&#160;stack.c'],['../stack_8h.html#a6951677634bc532fc5a003441d4adf3a',1,'pop(STACK *s):&#160;stack.c']]],
-  ['popg2_83',['popG2',['../guiao2_8c.html#ad80b294565ccb3a3f0ef8a65a4abe1d5',1,'popG2(STACK *s, char *token):&#160;guiao2.c'],['../stack_8h.html#ad80b294565ccb3a3f0ef8a65a4abe1d5',1,'popG2(STACK *s, char *token):&#160;guiao2.c']]],
-  ['push_84',['push',['../stack_8c.html#a1ff3daf71c44e6c58023663f72b35ffc',1,'push(STACK *s, char elem):&#160;stack.c'],['../stack_8h.html#a1ff3daf71c44e6c58023663f72b35ffc',1,'push(STACK *s, char elem):&#160;stack.c']]]
+  ['orbit_110',['orBit',['../guiao1_8c.html#a87ddb45957ad31e8fbf872fcb980e4fe',1,'orBit(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#a87ddb45957ad31e8fbf872fcb980e4fe',1,'orBit(STACK *s, char *token):&#160;guiao1.c']]],
+  ['oushortcut_111',['ouShortcut',['../guiao3_8c.html#a04602f5f721cb6b15246ac0e3e807cb9',1,'ouShortcut(STACK *s, char *token):&#160;guiao3.c'],['../stack_8h.html#a04602f5f721cb6b15246ac0e3e807cb9',1,'ouShortcut(STACK *s, char *token):&#160;guiao3.c']]]
 ];

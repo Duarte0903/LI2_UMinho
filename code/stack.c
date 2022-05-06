@@ -70,6 +70,7 @@ DATA cria_string (char *s)
     return x;
 }
 
+//! Transfere elementos entre arrays
 void cpyArr (STACK *a1, STACK *a2)
 {
     for (int i = a1 -> sp; i >= 0; i--)
@@ -79,13 +80,13 @@ void cpyArr (STACK *a1, STACK *a2)
     }
 }
 
+//! Transforma um array em DATA
 DATA cria_array (STACK *arr)
 {
     DATA x;
     x.tipo = ARRAY;
-    x.elem.arr = arr;
-    printStack (x.elem.arr);   // Apenas debugging
-    putchar ('\n');
+    x.elem.arr = new_stack();
+    cpyArr (arr, x.elem.arr);
     return x;
 }
 

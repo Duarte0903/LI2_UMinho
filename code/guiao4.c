@@ -23,8 +23,12 @@ int criaString (STACK *s, char *token)
     return r;
 }
 
-//! Da push a um array na stack FIX !!!
-int criaArray (STACK *s, char *token, int flag)
+//! Da push a um array na stack
+/*!
+ * input: [ 1 2 3 ] \n
+ * output: 123
+ */
+int fechaParReto (STACK *s, char *token, int flag)
 {
     int r = 0;
 
@@ -32,7 +36,7 @@ int criaArray (STACK *s, char *token, int flag)
     {
         STACK *new = new_stack();
 
-        for (int i = s -> sp; i>=flag; i--)
+        for (int i = s -> sp; i >= flag; i--)
         {
             DATA x = pop (s);
             push (new, x);
@@ -40,13 +44,13 @@ int criaArray (STACK *s, char *token, int flag)
 
         DATA p = cria_array (new);
         push (s, p);
-
         flag = 0;
         r = 1; 
     }
     return r;
 }
 
+//! Marca a abertura do parenteses reto
 int abreParReto (STACK *s, char *token, int flag)
 {
     int r = 0;
@@ -80,17 +84,23 @@ int range (STACK *s, char *token)
         {
             long range  = x.elem.l;
 
-            for (int i = 0; i < range; i++)
+            STACK *new = new_stack();
+
+            for (int i = range - 1; i >= 0; i--)
             {
-                push (s, cria_Long(i));     // PUSH a LONG ou ARRAY ??
+                push (new, cria_Long(i));
             }
+
+            DATA p = cria_array (new);
+            push (s, p);
 
             r = 1; 
         }
 
         if (x.tipo == ARRAY)
         {
-            
+            long range = x.elem.arr -> sp + 1;
+            push (s, cria_Long (range));
 
             r = 1;
         }
