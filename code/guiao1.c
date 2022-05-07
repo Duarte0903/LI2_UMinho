@@ -232,6 +232,15 @@ int multiplicacao (STACK *s, char *token)
             }
             r = 1;
         }
+
+        if (x.tipo == LONG && y.tipo == STRING)
+        {
+            for (int i = x.elem.l; i>0; i--)
+            {
+                push (s, y);
+            }
+            r = 1;
+        }
     }
     return r;
 }
@@ -346,10 +355,10 @@ int decrementar (STACK *s, char *token)
             DATA x = pop (x.elem.arr);
             DATA y = pop (x.elem.arr);
             DATA z = pop (x.elem.arr);
-            push (x.elem.arr, y);
-            push (x.elem.arr, x);
-            push (x.elem.arr, z);
+            push (s, z);
             push (s, x);
+            push (s, y);
+            r = 1;
         }
     }
     return r;
@@ -448,6 +457,37 @@ int add (STACK *s, char *token)
             z = x.elem.d + y.elem.d;
             DATA w = cria_Double (z);
             push (s, w);
+            r = 1;
+        }
+
+        if (x.tipo == STRING && y.tipo == STRING)
+        {
+            DATA p = cria_string (strcat (y.elem.str, x.elem.str));
+            push (s, p);
+            r = 1;
+        }
+
+        if (x.tipo == CHAR)
+        {
+            char *st = malloc (2*sizeof(char));
+            st[0] = x.elem.c;
+            st[1] = '\0';
+            y.elem.str = realloc (y.elem.str,5*sizeof(char));
+            strcat (y.elem.str, st);
+            push (s, cria_string (y.elem.str));
+            free(st);
+            r = 1;
+        }
+
+        if (y.tipo == CHAR)
+        {
+            char *st = malloc (2*sizeof(char));
+            st[0] = y.elem.c;
+            st[1] = '\0';
+            x.elem.str = realloc (x.elem.str,5*sizeof(char));
+            strcat (x.elem.str, st);
+            push (s, cria_string (x.elem.str));
+            free(st);
             r = 1;
         }
 

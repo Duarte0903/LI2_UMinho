@@ -9,17 +9,44 @@
 #include <string.h>
 #include "stack.h"
 
+//! Da push a um espaco 
+int pushEspaco (STACK *s, char *token)
+{
+    int r = 0;
+
+    if (strcmp (token, "S")==0)
+    {
+        push (s, cria_Char (' '));
+        r = 1; 
+    }
+    return r;
+}
+
 //! Da push a uma string FIX !!!
 int criaString (STACK *s, char *token)
 {
     int r = 0;
 
-    if (strchr (token, 34) != NULL && strlen (token) > 1)
+    for (unsigned int i = 0; i < strlen(token) - 1; i++)
     {
-        DATA x = cria_string (token);
-        push (s, x);
-        r = 1;
+        if (token[i] == '.') token[i] = ' ';
     }
+
+    for (unsigned int i = 0; i < strlen(token) - 1; i++)
+    {
+        token[i] = token[i+1];
+    }
+
+    for (int i = 0; i < 2; i++)
+    {
+        token[strlen(token)-1] = '\0';
+    }
+
+    DATA p = cria_string (token);
+    push (s, p);
+
+    r = 1;
+
     return r;
 }
 

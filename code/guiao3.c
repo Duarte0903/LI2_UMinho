@@ -46,10 +46,28 @@ int menorDosDois (STACK *s, char *token)
     if (strcmp (token, "e<")==0)
     {
         DATA x = pop (s);
-        DATA y = pop (s);    
-        if (x.elem.d < y.elem.d) push (s,x);
-        else push (s, y);
-        r = 1;
+        DATA y = pop (s);
+        
+        if (x.tipo == LONG && y.tipo == LONG)
+        {
+            if (x.elem.l < y.elem.l) push (s,x);
+            else push (s, y);
+            r = 1;
+        }
+
+        if (x.tipo == DOUBLE && y.tipo == DOUBLE)
+        {
+            if (x.elem.d < y.elem.d) push (s,x);
+            else push (s, y);
+            r = 1;
+        }
+
+        if (x.tipo == STRING && y.tipo == STRING)
+        {
+            if (strlen (x.elem.str) <= strlen (y.elem.str)) push (s, x);
+            else push (s, y);
+            r = 1;
+        }
     }
     return r;
 }
@@ -63,9 +81,27 @@ int maiorDosDois (STACK *s, char *token)
     {
         DATA x = pop (s);
         DATA y = pop (s);
-        if (x.elem.d > y.elem.d) push (s, x);
-        else push (s, y);
-        r = 1;
+
+        if (x.tipo == LONG && y.tipo == LONG)
+        {
+            if (x.elem.l > y.elem.l) push (s, x);
+            else push (s, y);
+            r = 1;
+        }
+        
+        if (x.tipo == DOUBLE && y.tipo == DOUBLE)
+        {
+            if (x.elem.d > y.elem.d) push (s, x);
+            else push (s, y);
+            r = 1;
+        }
+
+        if (x.tipo == STRING && y.tipo == STRING)
+        {
+            if (strlen (x.elem.str) > strlen (y.elem.str)) push (s, x);
+            else push (s, y);
+            r = 1;
+        }
     }
     return r;
 }
@@ -96,6 +132,13 @@ int menor (STACK *s, char *token)
         if (x.tipo == DOUBLE && y.tipo == DOUBLE)
         {
             if (y.elem.d < x.elem.d) push (s, cria_Long (1));
+            else push (s, cria_Long (0));
+            r = 1;
+        }
+
+        if (x.tipo == STRING && y.tipo == STRING)
+        {
+            if (strlen (y.elem.str) < strlen (x.elem.str)) push (s, cria_Long (1));
             else push (s, cria_Long (0));
             r = 1;
         }
@@ -152,6 +195,13 @@ int maior (STACK *s, char *token)
 
             push (s, p);
 
+            r = 1;
+        }
+
+        if (x.tipo == STRING && y.tipo == STRING)
+        {
+            if (strlen (y.elem.str) >= strlen (x.elem.str)) push (s, cria_Long (1));
+            else push (s, cria_Long (0));
             r = 1;
         }
     }
@@ -232,6 +282,7 @@ int eShortcut (STACK *s, char *token)
     {
         DATA x = pop (s);
         DATA y = pop (s);
+
         if (y.elem.l == 0 || x.elem.l == 0) 
         {
             push (s, cria_Long (0));
@@ -268,7 +319,7 @@ int buscaPorIndice (STACK *s, char *token)
         DATA x = pop (s);
         DATA y = pop (s);
 
-        if ((y.tipo == LONG || y.tipo == DOUBLE) && x.tipo == LONG)
+        if (x.tipo == LONG)
         {
             long indice = x.elem.l;
 
@@ -298,7 +349,7 @@ int buscaPorIndice (STACK *s, char *token)
             }
         }
 
-        if ((y.tipo == LONG || y.tipo == DOUBLE) && x.tipo == DOUBLE)
+        if (x.tipo == DOUBLE)
         {
             double indice = x.elem.d;
 
@@ -357,6 +408,37 @@ int buscaPorIndice (STACK *s, char *token)
                 r = 1;
             }
         }
+    
+        if (x.tipo == STRING)
+        {
+            char *busca = x.elem.str;
+
+            push (s, y);
+
+            for (i = s -> sp; i >= 0; i--)
+            {
+                if (strcmp (s -> stack[i].elem.str, busca) == 0)
+                {
+                    pop (s);
+                    index = i;
+                    flag = 1;
+                }
+                else pop (s);
+            }
+
+            if (flag != 0) 
+            {
+                push (s, cria_Long (index+1)); 
+                r = 1;
+            }
+
+            else 
+            {
+                push (s, cria_Long (0)); 
+                r = 1;
+            }
+        }
+    
     }
     return r;
 }

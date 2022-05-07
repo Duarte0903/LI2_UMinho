@@ -33,7 +33,7 @@ int handleG3 (STACK *s, char *token)
 //! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
 int handleG4 (STACK *s, char *token, int flag)
 {
-    if (criaString (s, token) || abreParReto (s, token,flag) || fechaParReto (s, token, flag) || range (s, token)) return 1;
+    if (pushEspaco (s, token) || abreParReto (s, token,flag) || fechaParReto (s, token, flag) || range (s, token)) return 1;
     else return 0;
 }
 
@@ -68,7 +68,8 @@ void parser (STACK *s, char *token)
 
         else 
         {
-            if ((strstr("+-*/()%#&|^~e&e|_;\\@$clifts<>=!?e<e>,[]\"", token) != NULL)) mainHandle (s, token, flagArrays);
+            if ((strstr("+-*/()%#&|^~e&e|_;\\@$clifts<>=!?e<e>,[]S", token) != NULL)) mainHandle (s, token, flagArrays);
+            if (strchr (token, 34) != NULL) criaString (s, token);
         }
     }
 } 
