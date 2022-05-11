@@ -8,34 +8,45 @@
 #include <string.h>
 #include "stack.h"
 
-//! Da push a 11
-int capB (STACK *s, char *token)
+//! Identifica os dois pontos
+int dots (char *token)
 {
-    int r = 0;
+    char c = token[0];
+    int r;
 
-    if (strcmp (token, "B")==0)
-    {
-        long x = 11;
-        DATA y = cria_Long (x);
-        push (s, y);
-        r = 1;
-    }
+    if (c == ':') r = 0;
+    else r = 1;
+
     return r;
 }
 
-//! Da push a 10
-int capA (STACK *s, char *token)
+//! Subtitui um valor de omissao pelo valor no topo da stack
+void omissao (STACK *s, char *token, DATA valOmissao[26])
 {
-    int r = 0;
+    char x = token[1];
+    DATA d = s -> stack[s -> sp];
+    valOmissao[x-65] = d;
+}
 
-    if (strcmp (token, "A")==0)
-    {
-        long x = 10;
-        DATA y = cria_Long (x);
-        push (s, y);
-        r = 1;
-    }
+//! Identifica uma letra maiuscula
+int capLtr (char *token)
+{
+    char c = token[0];
+    int r;
+
+    if (c <= 90 && c >= 65) r = 0;
+    else r = 1;
+
     return r;
+}
+
+//! D push ao valor de omissao
+void pushVal (STACK *s, char *token, DATA valOmissao[26])
+{
+    char c = token[0];
+    int i = c - 65;
+    DATA p = valOmissao[i];
+    push (s, p);
 }
 
 //! Coloca no topo da stack o menor de dois numeros

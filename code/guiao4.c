@@ -16,13 +16,13 @@ int pushEspaco (STACK *s, char *token)
 
     if (strcmp (token, "S")==0)
     {
-        push (s, cria_Char (' '));
+        push (s, cria_string (" "));
         r = 1; 
     }
     return r;
 }
 
-//! Da push a uma string FIX !!!
+//! Da push a uma string
 int criaString (STACK *s, char *token)
 {
     int r = 0;
@@ -55,13 +55,13 @@ int criaString (STACK *s, char *token)
  * input: [ 1 2 3 ] \n
  * output: 123
  */
-int fechaParReto (STACK *s, char *token, int flag)
+int fechaParReto (STACK *s, char *token, int flag)  // TODO Fix arrays !!!
 {
     int r = 0;
 
-    if (strcmp (token, "]")==0)
+    if (strstr ("]", token) != NULL)
     {
-        STACK *new = new_stack();
+         STACK *new = new_stack();
 
         for (int i = s -> sp; i >= flag; i--)
         {
@@ -72,7 +72,7 @@ int fechaParReto (STACK *s, char *token, int flag)
         DATA p = cria_array (new);
         push (s, p);
         flag = 0;
-        r = 1; 
+        r = 1;
     }
     return r;
 }
@@ -82,10 +82,9 @@ int abreParReto (STACK *s, char *token, int flag)
 {
     int r = 0;
 
-    if (strcmp (token, "[")==0)
+    if (strstr ("[", token) != NULL)
     {
         flag += s -> sp;
-
         r = 1;
     }
     return r;

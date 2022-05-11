@@ -26,21 +26,21 @@ int handleG2 (STACK *s, char *token)
 //! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
 int handleG3 (STACK *s, char *token)
 {
-    if (capB (s, token) || capA (s, token) || menorDosDois (s, token) || maiorDosDois (s, token) || menor (s, token) || maior (s, token) || nao (s, token) || ouShortcut (s, token) || eShortcut (s, token) || buscaPorIndice (s, token) || IfThenElse (s, token)) return 1;
+    if (menorDosDois (s, token) || maiorDosDois (s, token) || menor (s, token) || maior (s, token) || nao (s, token) || ouShortcut (s, token) || eShortcut (s, token) || buscaPorIndice (s, token) || IfThenElse (s, token)) return 1;
     else return 0;
 }
 
 //! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
-int handleG4 (STACK *s, char *token, int flag)
+int handleG4 (STACK *s, char *token, int flagArrays)
 {
-    if (pushEspaco (s, token) || abreParReto (s, token,flag) || fechaParReto (s, token, flag) || range (s, token)) return 1;
+    if (pushEspaco (s, token) || abreParReto (s, token,flagArrays) || fechaParReto (s, token, flagArrays) || range (s, token)) return 1;
     else return 0;
 }
 
 //! Funcao handle principal
-int mainHandle (STACK *s, char *token, int flag)
+int mainHandle (STACK *s, char *token, int flagArrays)
 {
-    if (handleG3 (s, token) || handleG2 (s, token) || handleG1 (s, token) || handleG4 (s, token, flag)) return 1;
+    if (handleG3 (s, token) || handleG2 (s, token) || handleG1 (s, token) || handleG4 (s, token, flagArrays)) return 1;
     else return 0;
 }
 
@@ -49,6 +49,9 @@ void parser (STACK *s, char *token)
 {
     char *sobra;
     int flagArrays = 0;
+
+    DATA val[26]; 
+    valOmissao (val);
 
     long val_i = strtol (token, &sobra, 10);
     if (strlen (sobra) == 0)
@@ -68,8 +71,10 @@ void parser (STACK *s, char *token)
 
         else 
         {
-            if ((strstr("+-*/()%#&|^~e&e|_;\\@$clifts<>=!?e<e>,[]S", token) != NULL)) mainHandle (s, token, flagArrays);
+            if ((strstr("+-*/()%#&|^~e&e|_;\\@$clifts<>=!?e<e>,[]S{}", token) != NULL)) mainHandle (s, token, flagArrays);
             if (strchr (token, 34) != NULL) criaString (s, token);
+            if (capLtr (token) == 0) pushVal (s, token, val);
+            if (dots (token) == 0) omissao (s, token, val);
         }
     }
 } 

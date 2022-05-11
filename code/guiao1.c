@@ -6,9 +6,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "stack.h"
 #include <string.h>
 #include <math.h>
-#include "stack.h"
 
 //! Vai buscar um numero a stack. Inverte os bits e devolve o resultado
 int notBit (STACK *s, char *token)
@@ -184,7 +184,7 @@ int multiplicacao (STACK *s, char *token)
         DATA x = pop (s);
         DATA y = pop (s);
 
-    if (x.tipo == LONG && y.tipo == LONG)
+        if (x.tipo == LONG && y.tipo == LONG)
         {
             long z = x.elem.l;
             long w = y.elem.l;
@@ -226,19 +226,27 @@ int multiplicacao (STACK *s, char *token)
 
         if (x.tipo == LONG && y.tipo == ARRAY)
         {
+
             for (int i = x.elem.l; i>0; i--)
             {
                 push (s, y);
             }
+
             r = 1;
         }
 
         if (x.tipo == LONG && y.tipo == STRING)
         {
-            for (int i = x.elem.l; i>0; i--)
+            int len = strlen (y.elem.str);
+
+            y.elem.str = realloc (y.elem.str, (strlen (y.elem.str) + 1) * sizeof(char));
+
+            for (int i = 0; i < (x.elem.l-1)*len; i++)
             {
-                push (s, y);
+                y.elem.str[len+i] = y.elem.str[i];
             }
+
+            push (s, y);
             r = 1;
         }
     }
@@ -352,11 +360,16 @@ int decrementar (STACK *s, char *token)
 
         if (x.tipo == ARRAY)
         {
-            DATA x = pop (x.elem.arr);
-            DATA y = pop (x.elem.arr);
-            DATA z = pop (x.elem.arr);
-            push (s, z);
-            push (s, x);
+            STACK *aux = x.elem.arr;
+            DATA y = aux -> stack[0];
+
+            for (int i=0; i < aux -> sp; i++)
+            {
+                aux -> stack[i] = aux -> stack[i+1];
+            }
+
+            aux -> sp--;
+            push (s, cria_array (aux));
             push (s, y);
             r = 1;
         }
@@ -460,35 +473,63 @@ int add (STACK *s, char *token)
             r = 1;
         }
 
+        if (x.tipo == CHAR && y.tipo == CHAR)
+        {
+            char *str = malloc (3*sizeof(char));
+            str[0] = y.elem.c;
+            str[1] = x.elem.c;
+            str[2] = '\0';
+            push (s, cria_string (str));
+            r = 1;
+        }
+
         if (x.tipo == STRING && y.tipo == STRING)
         {
-            DATA p = cria_string (strcat (y.elem.str, x.elem.str));
+            int i;
+            int len1 = strlen (y.elem.str);
+            int len2 = strlen (x.elem.str);
+            char *str = (char *)malloc(sizeof(x.elem.str) + sizeof(y.elem.str));
+
+            for (i = 0; i < len1; i++)
+            {
+                str[i] = y.elem.str[i];
+            }
+
+            for (i = len1; i < len2 + len1; i++)
+            {
+                str[i] = x.elem.str[i-len1];
+            }
+            str[i] = '\0';
+
+            DATA p = cria_string (str);
+
             push (s, p);
+
             r = 1;
         }
 
-        if (x.tipo == CHAR)
+        if (x.tipo == CHAR && y.tipo == STRING)
         {
-            char *st = malloc (2*sizeof(char));
-            st[0] = x.elem.c;
-            st[1] = '\0';
-            y.elem.str = realloc (y.elem.str,5*sizeof(char));
-            strcat (y.elem.str, st);
-            push (s, cria_string (y.elem.str));
-            free(st);
-            r = 1;
+            char *str = malloc (2*sizeof(char));
+            str[0] = x.elem.c;
+            str[1] = '\0';
+            y.elem.str = realloc (y.elem.str, 5*sizeof(char));
+            strcat (y.elem.str, str);
+            push (s, y);
+            free(str);
+            r=1;
         }
 
-        if (y.tipo == CHAR)
+        if (y.tipo == CHAR && x.tipo == STRING)
         {
-            char *st = malloc (2*sizeof(char));
-            st[0] = y.elem.c;
-            st[1] = '\0';
-            x.elem.str = realloc (x.elem.str,5*sizeof(char));
-            strcat (x.elem.str, st);
-            push (s, cria_string (x.elem.str));
-            free(st);
-            r = 1;
+            int len = strlen (x.elem.str);
+            char *str = malloc (2*sizeof(char) + len);
+            str[0] = y.elem.c;
+            str[1] = '\0';
+            strcat(str, x.elem.str);
+            push (s, cria_string (str));
+            free (x.elem.str);
+            r=1;
         }
 
         if (x.tipo == ARRAY && y.tipo == ARRAY)

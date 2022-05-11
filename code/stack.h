@@ -42,12 +42,13 @@ typedef struct stack
 int handleG1 (STACK *s, char *token);
 int handleG2 (STACK *s, char *token);
 int handleG3 (STACK *s, char *token);
-int handleG4 (STACK *s, char *token, int flag);
-int mainHandle (STACK *s, char *token, int flag);
+int handleG4 (STACK *s, char *token, int flagArrays);
+int mainHandle (STACK *s, char *token, int flagArrays);
 void parser (STACK *s, char *token);
 
 STACK *new_stack ();
 void cpyArr (STACK *a1, STACK *a2);
+void printDATA (DATA x);
 void printStack (STACK *s);
 DATA pop (STACK *s);
 void push (STACK *s, DATA elem);
@@ -56,7 +57,8 @@ DATA cria_Double (double d);
 DATA cria_Char (char c);
 DATA cria_string (char *s);
 DATA cria_array (STACK *arr);
-
+DATA cria_bloco (STACK *bloco);
+void valOmissao (DATA *variaveis);
 
 int notBit (STACK *s, char *token);
 int xorBit (STACK *s, char *token);
@@ -79,8 +81,10 @@ int popG2 (STACK *s, char *token);
 int duplicar (STACK *s, char *token);
 int rodar3 (STACK *s, char *token);
 
-int capB (STACK *s, char *token);
-int capA (STACK *s, char *token);
+int  dots (char *token);
+void omissao (STACK *s, char *token, DATA valOmissao[26]);
+int capLtr (char *token);
+void pushVal (STACK *s, char *token, DATA valOmissao[26]);
 int menorDosDois (STACK *s, char *token);
 int maiorDosDois (STACK *s, char *token);
 int menor (STACK *s, char *token);

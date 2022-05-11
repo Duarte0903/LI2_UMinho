@@ -90,6 +90,58 @@ DATA cria_array (STACK *arr)
     return x;
 }
 
+DATA cria_bloco (STACK *bloco)
+{
+    DATA x;
+    x.tipo = BLOCO;
+    x.elem.bloc = bloco;
+    return x;
+}
+
+void printBloco (STACK *s)
+{
+    int i;
+
+    printf("{ ");
+
+    for (i = 0; i < s -> sp; i++)
+    {
+        printDATA (s -> stack[i]);
+        putchar(' ');
+    }
+    printf("}");
+}
+
+void valOmissao (DATA *variaveis)
+{
+    int i=10;
+    for (char a='A'; a<='F'; a++, i++)
+    {
+        variaveis[a-65].tipo = LONG;
+        variaveis[a-65].elem.l = i;
+    }
+
+    for (char a='X', i=0; a<='Z'; a++, i++)
+    {
+        variaveis[a-65].tipo = LONG;
+        variaveis[a-65].elem.l = i;
+    }
+
+    variaveis['S'-65].tipo = CHAR;
+    variaveis['S'-65].elem.c =' ';
+    variaveis['N'-65].tipo = CHAR;
+    variaveis['N'-65].elem.c = '\n';
+}
+
+void printDATA (DATA x)
+{
+        if (x.tipo == LONG) printf("%ld", x.elem.l);
+        if (x.tipo == DOUBLE) printf("%g", x.elem.d);
+        if (x.tipo == CHAR) printf("%c", x.elem.c);
+        if (x.tipo == STRING) printf ("%s", x.elem.str);
+        if (x.tipo == ARRAY) printStack (x.elem.arr);
+}
+
 //! Da print aos elementos da stack
 void printStack (STACK *s)
 {
@@ -100,6 +152,7 @@ void printStack (STACK *s)
         if (s -> stack[i].tipo == CHAR) printf("%c", s -> stack[i].elem.c);
         if (s -> stack[i].tipo == STRING) printf ("%s", s -> stack[i].elem.str);
         if (s -> stack[i].tipo == ARRAY) printStack (s -> stack[i].elem.arr);
+        if (s -> stack[i].tipo == BLOCO) printBloco (s -> stack[i].elem.bloc);
     }
 }
 
