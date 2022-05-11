@@ -5,8 +5,29 @@
  */
 
 #include <stdio.h>
+#include <assert.h>
+#include <stdlib.h>
 #include <string.h>
 #include "stack.h"
+
+//! Ler linha
+int lerLinha (STACK *s, char *token)
+{
+    int r = 0;
+
+    if (strcmp (token, "l") == 0)
+    {
+        char *a1 = malloc (10240 * sizeof(char));
+        assert (fgets(a1, 10240, stdin) != NULL);
+        int x = strlen(a1);
+        char *a2 = malloc ((x+1) * sizeof(char));
+        strcpy(a2,a1);
+        push (s, cria_string (a2));
+        free(a1);
+        r = 1;
+    }
+    return r;
+}
 
 //! Transforma o numero no topo da stack num char 
 /*!

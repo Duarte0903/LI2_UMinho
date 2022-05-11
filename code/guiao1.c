@@ -25,9 +25,9 @@ int notBit (STACK *s, char *token)
             DATA z = cria_Long (y);
             push (s, z);
             r = 1;
-        } 
+        }
 
-        if (x.tipo == ARRAY)  // FIX !!!
+        if (x.tipo == ARRAY)  // TODO FIX !!!
         {
             STACK *temp = new_stack();
 
@@ -483,12 +483,12 @@ int add (STACK *s, char *token)
             r = 1;
         }
 
-        if (x.tipo == STRING && y.tipo == STRING)
+        if (x.tipo == STRING && y.tipo == STRING)  // TODO FIX !!!
         {
-            int i;
-            int len1 = strlen (y.elem.str);
-            int len2 = strlen (x.elem.str);
-            char *str = (char *)malloc(sizeof(x.elem.str) + sizeof(y.elem.str));
+            unsigned int i;
+            unsigned int len1 = strlen (y.elem.str);
+            unsigned int len2 = strlen (x.elem.str);
+            char *str = calloc (len1 + len2 + 1, sizeof (char));
 
             for (i = 0; i < len1; i++)
             {

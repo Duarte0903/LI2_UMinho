@@ -74,6 +74,7 @@ int sub (STACK *s, char *token);
 int add (STACK *s, char *token);
 int val (STACK *s, char *token);
 
+int lerLinha (STACK *s, char *token);
 int intParaChar (STACK *s, char *token);
 int troca2Topo (STACK *s, char *token);
 int copiaNesimo (STACK *s, char *token);
