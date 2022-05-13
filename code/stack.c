@@ -87,6 +87,8 @@ DATA cria_array (STACK *arr)
     x.tipo = ARRAY;
     x.elem.arr = new_stack();
     cpyArr (arr, x.elem.arr);
+    printStack (x.elem.arr);
+    putchar ('\n');
     return x;
 }
 

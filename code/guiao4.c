@@ -55,13 +55,13 @@ int criaString (STACK *s, char *token)
  * input: [ 1 2 3 ] \n
  * output: 123
  */
-int fechaParReto (STACK *s, char *token, int flag)  // TODO Fix arrays !!!
+int fechaParReto (STACK *s, char *token, int flag)  // TODO Fix arrays !!! (Vai tudo para o mesmo array)
 {
     int r = 0;
 
     if (strstr ("]", token) != NULL)
     {
-         STACK *new = new_stack();
+        STACK *new = new_stack();
 
         for (int i = s -> sp; i >= flag; i--)
         {

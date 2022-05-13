@@ -27,21 +27,25 @@ int notBit (STACK *s, char *token)
             r = 1;
         }
 
-        if (x.tipo == ARRAY)  // TODO FIX !!!
+        if (x.tipo == ARRAY)
         {
-            STACK *temp = new_stack();
+            int i;
+            int n = x.elem.arr -> sp;
 
-            while (x.elem.arr -> sp >= 0)
+            DATA arr[n];
+
+            for (i = 0; i <= n; i++)
             {
                 DATA p = pop (x.elem.arr);
-                push (temp, p);
+                arr[i] = p;
             }
 
-            while (x.elem.arr -> sp >= 0)
+            for (i = n; i >= 0; i--)
             {
-                DATA p = pop (temp);
-                push (s, p);
+                push (s, arr[i]);
             }
+
+            r = 1;
         }
     }
     return r;
@@ -168,6 +172,11 @@ int divisao (STACK *s, char *token)
             double r = w/z;
             DATA result = cria_Double (r);
             push (s, result);
+            r = 1;
+        }
+
+        if (x.tipo ==STRING && y.tipo == STRING)
+        {
             r = 1;
         }
     }
