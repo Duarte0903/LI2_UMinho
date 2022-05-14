@@ -117,6 +117,7 @@ void printBloco (STACK *s)
 void valOmissao (DATA *variaveis)
 {
     int i=10;
+
     for (char a='A'; a<='F'; a++, i++)
     {
         variaveis[a-65].tipo = LONG;
@@ -135,13 +136,14 @@ void valOmissao (DATA *variaveis)
     variaveis['N'-65].elem.c = '\n';
 }
 
+//! Faz print apenas a um elemento (Usada para debugging pa ja)
 void printDATA (DATA x)
 {
-        if (x.tipo == LONG) printf("%ld", x.elem.l);
-        if (x.tipo == DOUBLE) printf("%g", x.elem.d);
-        if (x.tipo == CHAR) printf("%c", x.elem.c);
-        if (x.tipo == STRING) printf ("%s", x.elem.str);
-        if (x.tipo == ARRAY) printStack (x.elem.arr);
+    if (x.tipo == LONG) printf("%ld", x.elem.l);
+    if (x.tipo == DOUBLE) printf("%g", x.elem.d);
+    if (x.tipo == CHAR) printf("%c", x.elem.c);
+    if (x.tipo == STRING) printf ("%s", x.elem.str);
+    if (x.tipo == ARRAY) printStack (x.elem.arr);
 }
 
 //! Da print aos elementos da stack

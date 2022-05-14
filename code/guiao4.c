@@ -9,6 +9,28 @@
 #include <string.h>
 #include "stack.h"
 
+//! Le todo o input
+int lerInput (STACK *s, char *token)
+{
+    int r = 0;
+
+    if (strcmp (token, "t") == 0)
+    {
+        char *str1 = malloc (10240*sizeof(char));
+        char *str2 = malloc (10240*sizeof(char));
+
+        while (fgets(str1, 10240, stdin))
+        {
+            strcat(str2, str1);
+            if (str1[0] == '\n') break;
+            r = 1;
+        }
+
+        push (s, cria_string (str2));
+    }
+    return r;
+}
+
 //! Da push a um espaco 
 int pushEspaco (STACK *s, char *token)
 {

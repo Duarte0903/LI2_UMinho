@@ -40,7 +40,7 @@ int capLtr (char *token)
     return r;
 }
 
-//! D push ao valor de omissao
+//! Da push ao valor de omissao
 void pushVal (STACK *s, char *token, DATA valOmissao[26])
 {
     char c = token[0];
@@ -233,8 +233,9 @@ int nao (STACK *s, char *token)
     if (strcmp (token, "!")==0)
     {
         DATA x = pop (s);
-        if (x.elem.l == 0) push (s, cria_Long (1));
-        else push (s, x);
+        if (x.tipo == LONG && x.elem.l == 0) push (s, cria_Long (1));
+        if (x.tipo == LONG && x.elem.l != 0) push (s, cria_Long (0));
+        if (x.tipo == DOUBLE && x.elem.d != 0) push (s, cria_Long (0));
         r = 1;
     }
     return r;

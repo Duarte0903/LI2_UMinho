@@ -96,6 +96,7 @@ int eShortcut (STACK *s, char *token);
 int buscaPorIndice (STACK *s, char *token);
 int IfThenElse (STACK *s, char *token);
 
+int lerInput (STACK *s, char *token);
 int pushEspaco (STACK *s, char *token);
 int criaString (STACK *s, char *token);
 int abreParReto (STACK *s, char *token, int flag);

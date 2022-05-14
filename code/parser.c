@@ -33,7 +33,7 @@ int handleG3 (STACK *s, char *token)
 //! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
 int handleG4 (STACK *s, char *token, int flagArrays)
 {
-    if (pushEspaco (s, token) || abreParReto (s, token,flagArrays) || fechaParReto (s, token, flagArrays) || range (s, token)) return 1;
+    if (lerInput (s, token) || pushEspaco (s, token) || criaString (s, token) || abreParReto (s, token,flagArrays) || fechaParReto (s, token, flagArrays) || range (s, token)) return 1;
     else return 0;
 }
 
