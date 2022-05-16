@@ -23,9 +23,10 @@ int dots (char *token)
 //! Subtitui um valor de omissao pelo valor no topo da stack
 void omissao (STACK *s, char *token, DATA valOmissao[26])
 {
+    DATA p = pop (s);
     char x = token[1];
-    DATA d = s -> stack[s -> sp];
-    valOmissao[x-65] = d;
+    valOmissao[x-65] = p;
+    push (s, p);
 }
 
 //! Identifica uma letra maiuscula

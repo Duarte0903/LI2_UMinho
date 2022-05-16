@@ -19,7 +19,7 @@ int handleG1 (STACK *s, char *token)
 //! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
 int handleG2 (STACK *s, char *token)
 {
-    if (lerLinha (s, token) || intParaChar (s, token) || troca2Topo (s, token) || copiaNesimo (s, token) || popG2 (s, token) || duplicar (s, token) || rodar3 (s, token)) return 1;
+    if (convertParaDouble (s, token) || convertParaInt (s, token) || lerLinha (s, token) || intParaChar (s, token) || troca2Topo (s, token) || copiaNesimo (s, token) || popG2 (s, token) || duplicar (s, token) || rodar3 (s, token)) return 1;
     else return 0;
 }
 
@@ -33,7 +33,7 @@ int handleG3 (STACK *s, char *token)
 //! Se uma operacao der return ao 1, o output sera o resultado dessa operacao
 int handleG4 (STACK *s, char *token, int flagArrays)
 {
-    if (lerInput (s, token) || pushEspaco (s, token) || criaString (s, token) || abreParReto (s, token,flagArrays) || fechaParReto (s, token, flagArrays) || range (s, token)) return 1;
+    if (lerInput (s, token) || pushEspaco (s, token) || criaString (s, token) || abreParReto (s, token, flagArrays) || fechaParReto (s, token, flagArrays) || range (s, token)) return 1;
     else return 0;
 }
 

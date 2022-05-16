@@ -10,6 +10,78 @@
 #include <string.h>
 #include "stack.h"
 
+//! Converte o topo da stack para DOUBLE
+int convertParaDouble (STACK *s, char *token)
+{
+    int r = 0;
+
+    if (strcmp (token, "f") == 0)
+    {
+        DATA x = pop (s);
+
+        if (x.tipo == LONG)
+        {
+            push (s, cria_Double (x.elem.d));
+            r = 1;
+        }
+
+        if (x.tipo == DOUBLE)
+        {
+            push (s, x);
+            r = 1; 
+        }
+
+        if (x.tipo == CHAR)
+        {
+            push (s, cria_Double (x.elem.c));
+            r = 1; 
+        }
+
+        if (x.tipo == STRING)
+        {
+            push (s, cria_Double (atof (x.elem.str)));
+            r = 1;
+        }
+    }
+    return r;
+}
+
+//! COnverte o topo da stack para INTEIRO
+int convertParaInt (STACK *s, char *token)
+{
+    int r = 0;
+
+    if (strcmp (token, "i") == 0)
+    {
+        DATA x = pop (s);
+
+        if (x.tipo == LONG)
+        {
+            push (s, x);
+            r = 1;
+        }
+
+        if (x.tipo == DOUBLE)
+        {
+            push (s, cria_Long (x.elem.d));
+            r = 1;
+        }
+
+        if (x.tipo == CHAR)
+        {
+            push (s, cria_Long (x.elem.c));
+            r = 1;
+        }
+
+        if (x.tipo == STRING)
+        {
+            push (s, cria_Long (atof (x.elem.str)));
+            r = 1;
+        }
+    }
+    return r;
+} 
+
 //! Ler linha
 int lerLinha (STACK *s, char *token)
 {

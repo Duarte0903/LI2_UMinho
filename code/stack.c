@@ -87,11 +87,12 @@ DATA cria_array (STACK *arr)
     x.tipo = ARRAY;
     x.elem.arr = new_stack();
     cpyArr (arr, x.elem.arr);
-    printStack (x.elem.arr);
+    printStack (arr);
     putchar ('\n');
     return x;
 }
 
+//! Transforma um bloco em DATA
 DATA cria_bloco (STACK *bloco)
 {
     DATA x;
@@ -100,6 +101,7 @@ DATA cria_bloco (STACK *bloco)
     return x;
 }
 
+//! Faz print a um bloco
 void printBloco (STACK *s)
 {
     int i;
@@ -114,6 +116,7 @@ void printBloco (STACK *s)
     printf("}");
 }
 
+//! Atribuicao de valores de omissao 
 void valOmissao (DATA *variaveis)
 {
     int i=10;
@@ -136,13 +139,13 @@ void valOmissao (DATA *variaveis)
     variaveis['N'-65].elem.c = '\n';
 }
 
-//! Faz print apenas a um elemento (Usada para debugging pa ja)
+//! Faz print apenas a um elemento (Usada para debugging para ja)
 void printDATA (DATA x)
 {
-    if (x.tipo == LONG) printf("%ld", x.elem.l);
-    if (x.tipo == DOUBLE) printf("%g", x.elem.d);
-    if (x.tipo == CHAR) printf("%c", x.elem.c);
-    if (x.tipo == STRING) printf ("%s", x.elem.str);
+    if (x.tipo == LONG) printf("%ld \n", x.elem.l);
+    if (x.tipo == DOUBLE) printf("%g \n", x.elem.d);
+    if (x.tipo == CHAR) printf("%c \n", x.elem.c);
+    if (x.tipo == STRING) printf ("%s \n", x.elem.str);
     if (x.tipo == ARRAY) printStack (x.elem.arr);
 }
 
