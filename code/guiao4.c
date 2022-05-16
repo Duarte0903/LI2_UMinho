@@ -19,10 +19,9 @@ int lerInput (STACK *s, char *token)
         char *str1 = malloc (10240*sizeof(char));
         char *str2 = malloc (10240*sizeof(char));
 
-        while (fgets(str1, 10240, stdin))
+        while (fgets(str1, 10240, stdin) && str1[0] != '\n')
         {
             strcat(str2, str1);
-            if (str1[0] == '\n') break;
             r = 1;
         }
 
@@ -81,7 +80,7 @@ int fechaParReto (STACK *s, char *token, int flag)  // TODO Fix arrays !!! (Vai 
 {
     int r = 0;
 
-    if (strstr ("]", token) != NULL)
+    if (strcmp (token, "]") == 0)
     {
         STACK *new = new_stack();
 
@@ -104,7 +103,7 @@ int abreParReto (STACK *s, char *token, int flag)
 {
     int r = 0;
 
-    if (strstr ("[", token) != NULL)
+    if (strcmp (token, "[") == 0)
     {
         flag += s -> sp;
         r = 1;
