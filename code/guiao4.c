@@ -73,10 +73,12 @@ int criaString (STACK *s, char *token)
 
 //! Da push a um array na stack
 /*!
+ * @param flag: 
+ *
  * input: [ 1 2 3 ] \n
  * output: 123
  */
-int fechaParReto (STACK *s, char *token, int flag)  // TODO Fix arrays !!! (Vai tudo para o mesmo array)
+int fechaParReto (STACK *s, char *token, int flag)  // TODO Fix arrays !!! 
 {
     int r = 0;
 
@@ -84,7 +86,7 @@ int fechaParReto (STACK *s, char *token, int flag)  // TODO Fix arrays !!! (Vai 
     {
         STACK *new = new_stack();
 
-        for (int i = s -> sp; i >= flag; i--)
+        for (int i = s -> sp; i > flag; i--)
         {
             DATA x = pop (s);
             push (new, x);
@@ -106,6 +108,7 @@ int abreParReto (STACK *s, char *token, int flag)
     if (strcmp (token, "[") == 0)
     {
         flag += s -> sp;
+        printf ("%d", flag);
         r = 1;
     }
     return r;
