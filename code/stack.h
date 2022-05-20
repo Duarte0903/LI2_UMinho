@@ -20,7 +20,7 @@ typedef enum
 //! Definicao do tipo de dados que vai ser guardado na stack
 typedef struct 
 {
-    TIPO tipo;                  /**< Tipo do elemento da stack */
+    TIPO tipo;                     // Tipo do elemento da stack
     union
     {
         long l;
@@ -35,8 +35,8 @@ typedef struct
 //! Definicao da stack. Array de elementos e stack pointer
 typedef struct stack
 {
-    DATA stack[Max_Stack];      /**< Array de dados */
-    int sp;                    /**< Stack pointer */
+    DATA stack[Max_Stack];          // Array de DATA
+    int sp;                         // Stack pointer
 } STACK;
 
 int handleG1 (STACK *s, char *token);
@@ -45,7 +45,6 @@ int handleG3 (STACK *s, char *token);
 int handleG4 (STACK *s, char *token, int flagArrays);
 int mainHandle (STACK *s, char *token, int flagArrays);
 void parser (STACK *s, char *token);
-
 STACK *new_stack ();
 void cpyArr (STACK *a1, STACK *a2);
 void printDATA (DATA x);
@@ -59,7 +58,6 @@ DATA cria_string (char *s);
 DATA cria_array (STACK *arr);
 DATA cria_bloco (STACK *bloco);
 void valOmissao (DATA *variaveis);
-
 int notBit (STACK *s, char *token);
 int xorBit (STACK *s, char *token);
 int orBit (STACK *s, char *token);
@@ -73,7 +71,7 @@ int decrementar (STACK *s, char *token);
 int sub (STACK *s, char *token);
 int add (STACK *s, char *token);
 int val (STACK *s, char *token);
-
+int convertParaString (STACK *s, char *token);
 int convertParaInt (STACK *s, char *token);
 int lerLinha (STACK *s, char *token);
 int intParaChar (STACK *s, char *token);
@@ -82,7 +80,6 @@ int copiaNesimo (STACK *s, char *token);
 int popG2 (STACK *s, char *token);
 int duplicar (STACK *s, char *token);
 int rodar3 (STACK *s, char *token);
-
 int  dots (char *token);
 void omissao (STACK *s, char *token, DATA valOmissao[26]);
 int capLtr (char *token);
@@ -96,10 +93,9 @@ int ouShortcut (STACK *s, char *token);
 int eShortcut (STACK *s, char *token);
 int buscaPorIndice (STACK *s, char *token);
 int IfThenElse (STACK *s, char *token);
-
 int lerInput (STACK *s, char *token);
 int pushEspaco (STACK *s, char *token);
 int criaString (STACK *s, char *token);
-int abreParReto (STACK *s, char *token, int flag);
-int fechaParReto (STACK *s, char *token, int flag);
 int range (STACK *s, char *token);
+int abreArray (STACK *s, char *token, int flagArrays);
+int fechaArray (STACK *s, char *token, int flagArrays);

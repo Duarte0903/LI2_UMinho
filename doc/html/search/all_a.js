@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['nao_41',['nao',['../guiao3_8c.html#a76ff7d6b08b94ad07f4ef81feee6802c',1,'nao(STACK *s, char *token):&#160;guiao3.c'],['../stack_8h.html#a76ff7d6b08b94ad07f4ef81feee6802c',1,'nao(STACK *s, char *token):&#160;guiao3.c']]],
-  ['new_5fstack_42',['new_stack',['../stack_8c.html#a4002d1ff72ad115103ac2daef3200bc5',1,'new_stack():&#160;stack.c'],['../stack_8h.html#a4002d1ff72ad115103ac2daef3200bc5',1,'new_stack():&#160;stack.c']]],
-  ['notbit_43',['notBit',['../guiao1_8c.html#ab5cedecfc57357268d3f1bc2251e41c2',1,'notBit(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#ab5cedecfc57357268d3f1bc2251e41c2',1,'notBit(STACK *s, char *token):&#160;guiao1.c']]]
+  ['main_38',['main',['../main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.c']]],
+  ['main_2ec_39',['main.c',['../main_8c.html',1,'']]],
+  ['mainhandle_40',['mainHandle',['../parser_8c.html#ae23015fffd17726faa133719de05dc88',1,'mainHandle(STACK *s, char *token, int flagArrays):&#160;parser.c'],['../stack_8h.html#ae23015fffd17726faa133719de05dc88',1,'mainHandle(STACK *s, char *token, int flagArrays):&#160;parser.c']]],
+  ['maior_41',['maior',['../guiao3_8c.html#ae17f9d34cc1c3d004926615cfa4c8528',1,'maior(STACK *s, char *token):&#160;guiao3.c'],['../stack_8h.html#ae17f9d34cc1c3d004926615cfa4c8528',1,'maior(STACK *s, char *token):&#160;guiao3.c']]],
+  ['maiordosdois_42',['maiorDosDois',['../guiao3_8c.html#a687f1b1c2fe5a15bdde84d3e94aa0176',1,'maiorDosDois(STACK *s, char *token):&#160;guiao3.c'],['../stack_8h.html#a687f1b1c2fe5a15bdde84d3e94aa0176',1,'maiorDosDois(STACK *s, char *token):&#160;guiao3.c']]],
+  ['menor_43',['menor',['../guiao3_8c.html#a8961d8490c7e92e53a1bc0f8a909177c',1,'menor(STACK *s, char *token):&#160;guiao3.c'],['../stack_8h.html#a8961d8490c7e92e53a1bc0f8a909177c',1,'menor(STACK *s, char *token):&#160;guiao3.c']]],
+  ['menordosdois_44',['menorDosDois',['../guiao3_8c.html#a4b2e1a988c718202fa6fda28a68dd225',1,'menorDosDois(STACK *s, char *token):&#160;guiao3.c'],['../stack_8h.html#a4b2e1a988c718202fa6fda28a68dd225',1,'menorDosDois(STACK *s, char *token):&#160;guiao3.c']]],
+  ['modulo_45',['modulo',['../guiao1_8c.html#a29b3c44405db92a29344d328e2e4651b',1,'modulo(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#a29b3c44405db92a29344d328e2e4651b',1,'modulo(STACK *s, char *token):&#160;guiao1.c']]],
+  ['multiplicacao_46',['multiplicacao',['../guiao1_8c.html#a708f9d7f0d9888d26271fc90526a585f',1,'multiplicacao(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#a708f9d7f0d9888d26271fc90526a585f',1,'multiplicacao(STACK *s, char *token):&#160;guiao1.c']]]
 ];

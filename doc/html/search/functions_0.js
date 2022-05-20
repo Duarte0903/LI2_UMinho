@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['abreparreto_73',['abreParReto',['../guiao4_8c.html#a6bb619343c81a2655bee142f84b89221',1,'abreParReto(STACK *s, char *token, int flag):&#160;guiao4.c'],['../stack_8h.html#a6bb619343c81a2655bee142f84b89221',1,'abreParReto(STACK *s, char *token, int flag):&#160;guiao4.c']]],
-  ['add_74',['add',['../guiao1_8c.html#ac3a2272fdf8b389529a61c81915cc339',1,'add(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#ac3a2272fdf8b389529a61c81915cc339',1,'add(STACK *s, char *token):&#160;guiao1.c']]],
-  ['andbit_75',['andBit',['../guiao1_8c.html#a2ae205bf675605647494105305d24055',1,'andBit(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#a2ae205bf675605647494105305d24055',1,'andBit(STACK *s, char *token):&#160;guiao1.c']]]
+  ['abrearray_85',['abreArray',['../guiao4_8c.html#a9feb70bafbc6da9cf91b84aa8a9dccc2',1,'abreArray(STACK *s, char *token, int flagArrays):&#160;guiao4.c'],['../stack_8h.html#a9feb70bafbc6da9cf91b84aa8a9dccc2',1,'abreArray(STACK *s, char *token, int flagArrays):&#160;guiao4.c']]],
+  ['add_86',['add',['../guiao1_8c.html#ac3a2272fdf8b389529a61c81915cc339',1,'add(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#ac3a2272fdf8b389529a61c81915cc339',1,'add(STACK *s, char *token):&#160;guiao1.c']]],
+  ['andbit_87',['andBit',['../guiao1_8c.html#a2ae205bf675605647494105305d24055',1,'andBit(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#a2ae205bf675605647494105305d24055',1,'andBit(STACK *s, char *token):&#160;guiao1.c']]]
 ];

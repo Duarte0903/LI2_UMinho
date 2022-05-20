@@ -5,17 +5,21 @@ digraph "code/stack.h"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="code/stack.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Definicao da stack."];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="code/guiao1.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$guiao1_8c.html",tooltip="Operacoes do guiao 1."];
+  Node2 [label="code/conversoes.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$conversoes_8c_source.html",tooltip=" "];
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="code/guiao2.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$guiao2_8c.html",tooltip="Operacoes do guiao 2."];
+  Node3 [label="code/guiao1.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$guiao1_8c.html",tooltip="Operacoes do guiao 1."];
   Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="code/guiao3.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$guiao3_8c.html",tooltip="Operacoes do guiao 3."];
+  Node4 [label="code/guiao2.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$guiao2_8c.html",tooltip="Operacoes do guiao 2."];
   Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="code/guiao4.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$guiao4_8c.html",tooltip="Operacoes do guiao 4."];
+  Node5 [label="code/guiao3.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$guiao3_8c.html",tooltip="Operacoes do guiao 3."];
   Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="code/main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html",tooltip="Ficheiro main."];
+  Node6 [label="code/guiao4.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$guiao4_8c.html",tooltip="Operacoes do guiao 4."];
   Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node7 [label="code/parser.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parser_8c.html",tooltip="Atribui tipos aos tokens e decide a operação."];
+  Node7 [label="code/lerInput.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$lerInput_8c.html",tooltip="Funcoes relativas a leitura do input."];
   Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node8 [label="code/stack.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$stack_8c.html",tooltip="Operacoes da stack."];
+  Node8 [label="code/main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html",tooltip="Ficheiro main."];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="code/parser.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parser_8c.html",tooltip="Atribui tipos aos tokens e decide a operação."];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="code/stack.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$stack_8c.html",tooltip="Operacoes da stack."];
 }

@@ -9,28 +9,7 @@
 #include <string.h>
 #include "stack.h"
 
-//! Le todo o input
-int lerInput (STACK *s, char *token)
-{
-    int r = 0;
-
-    if (strcmp (token, "t") == 0)
-    {
-        char *str1 = malloc (10240*sizeof(char));
-        char *str2 = malloc (10240*sizeof(char));
-
-        while (fgets(str1, 10240, stdin) && str1[0] != '\n')
-        {
-            strcat(str2, str1);
-            r = 1;
-        }
-
-        push (s, cria_string (str2));
-    }
-    return r;
-}
-
-//! Da push a um espaco 
+//! Da push a um espaco (STRING)
 int pushEspaco (STACK *s, char *token)
 {
     int r = 0;
@@ -48,22 +27,17 @@ int criaString (STACK *s, char *token)
 {
     int r = 0;
 
-    for (unsigned int i = 0; i < strlen(token) - 1; i++)
-    {
-        if (token[i] == '.') token[i] = ' ';
-    }
-
-    for (unsigned int i = 0; i < strlen(token) - 1; i++)
+    for (unsigned int i = 0; i < strlen(token) - 1; i++)       // Altera o CHAR de cada indice da STRING (Basicamente remove a abertura de aspas)
     {
         token[i] = token[i+1];
     }
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 2; i++)                                // Vai trocar "fechar aspas" por '\0' marcando um novo fim da STRING
     {
         token[strlen(token)-1] = '\0';
     }
 
-    DATA p = cria_string (token);
+    DATA p = cria_string (token);                              // Transformar a STRING (token sem aspas) em DATA
     push (s, p);
 
     r = 1;
@@ -73,12 +47,12 @@ int criaString (STACK *s, char *token)
 
 //! Da push a um array na stack
 /*!
- * @param flag: 
+ * @param flagArrays: ponto de paragem para o loop for
  *
  * input: [ 1 2 3 ] \n
  * output: 123
  */
-int fechaParReto (STACK *s, char *token, int flag)  // TODO Fix arrays !!! 
+int fechaArray (STACK *s, char *token, int flagArrays)
 {
     int r = 0;
 
@@ -86,7 +60,7 @@ int fechaParReto (STACK *s, char *token, int flag)  // TODO Fix arrays !!!
     {
         STACK *new = new_stack();
 
-        for (int i = s -> sp; i > flag; i--)
+        for (int i = s -> sp; i >= flagArrays; i--)
         {
             DATA x = pop (s);
             push (new, x);
@@ -94,30 +68,29 @@ int fechaParReto (STACK *s, char *token, int flag)  // TODO Fix arrays !!!
 
         DATA p = cria_array (new);
         push (s, p);
-        flag = 0;
+        flagArrays = 0;
         r = 1;
     }
     return r;
 }
 
 //! Marca a abertura do parenteses reto
-int abreParReto (STACK *s, char *token, int flag)
+int abreArray (STACK *s, char *token, int flagArrays)
 {
     int r = 0;
 
     if (strcmp (token, "[") == 0)
     {
-        flag += s -> sp;
-        printf ("%d", flag);
+        flagArrays += s -> sp;
         r = 1;
     }
     return r;
 }
 
-//! Da push aos numeros menores que n
+//! Da push aos numeros menores que n / tamanho de STRING ou ARRAY
 /*!
  * input: 5 , \n
- * output: 01234
+ * output: 01234 (ARRAY)
  * 
  * input: [ 1 2 3 ] \n
  * output: 3

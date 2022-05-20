@@ -70,7 +70,11 @@ DATA cria_string (char *s)
     return x;
 }
 
-//! Transfere elementos entre arrays
+/*! 
+ * Transfere elementos entre arrays
+ * A funcao que cria os arrays coloca os numeros ao contrario
+ * Cabe a esta funcao inverter o array antes de dar push
+ */
 void cpyArr (STACK *a1, STACK *a2)
 {
     for (int i = a1 -> sp; i >= 0; i--)
@@ -87,8 +91,6 @@ DATA cria_array (STACK *arr)
     x.tipo = ARRAY;
     x.elem.arr = new_stack();
     cpyArr (arr, x.elem.arr);
-    printStack (x.elem.arr);
-    putchar ('\n');
     return x;
 }
 
@@ -121,7 +123,7 @@ void valOmissao (DATA *variaveis)
 {
     int i=10;
 
-    for (char a='A'; a<='F'; a++, i++)
+    for (char a ='A'; a<='F'; a++, i++)
     {
         variaveis[a-65].tipo = LONG;
         variaveis[a-65].elem.l = i;
@@ -134,12 +136,12 @@ void valOmissao (DATA *variaveis)
     }
 
     variaveis['S'-65].tipo = CHAR;
-    variaveis['S'-65].elem.c =' ';
+    variaveis['S'-65].elem.c = ' ';
     variaveis['N'-65].tipo = CHAR;
     variaveis['N'-65].elem.c = '\n';
 }
 
-//! Faz print apenas a um elemento (Usada para debugging para ja)
+//! Faz print apenas a um elemento (Usada para printBloco)
 void printDATA (DATA x)
 {
     if (x.tipo == LONG) printf("%ld \n", x.elem.l);

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xorbit_123',['xorBit',['../guiao1_8c.html#aa0e7f93ecf903606c18d45bec765d0af',1,'xorBit(STACK *s, char *token):&#160;guiao1.c'],['../stack_8h.html#aa0e7f93ecf903606c18d45bec765d0af',1,'xorBit(STACK *s, char *token):&#160;guiao1.c']]]
+  ['troca2topo_143',['troca2Topo',['../guiao2_8c.html#a7c1b518d7bd978270f01158c2776ccd6',1,'troca2Topo(STACK *s, char *token):&#160;guiao2.c'],['../stack_8h.html#a7c1b518d7bd978270f01158c2776ccd6',1,'troca2Topo(STACK *s, char *token):&#160;guiao2.c']]]
 ];

@@ -492,12 +492,12 @@ int add (STACK *s, char *token)
             r = 1;
         }
 
-        if (x.tipo == STRING && y.tipo == STRING)  // TODO FIX !!!
+        if (x.tipo == STRING && y.tipo == STRING)
         {
             unsigned int i;
             unsigned int len1 = strlen (y.elem.str);
             unsigned int len2 = strlen (x.elem.str);
-            char *str = calloc (len1 + len2 + 1, sizeof (char));
+            char *str = calloc (len1 + len2 + 1, sizeof (char));     // Resultado de concatenar x e y 
 
             for (i = 0; i < len1; i++)
             {
@@ -526,7 +526,7 @@ int add (STACK *s, char *token)
             strcat (y.elem.str, str);
             push (s, y);
             free(str);
-            r=1;
+            r = 1;
         }
 
         if (y.tipo == CHAR && x.tipo == STRING)
@@ -538,7 +538,7 @@ int add (STACK *s, char *token)
             strcat(str, x.elem.str);
             push (s, cria_string (str));
             free (x.elem.str);
-            r=1;
+            r = 1;
         }
 
         if (x.tipo == ARRAY && y.tipo == ARRAY)

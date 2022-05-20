@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fechaparreto_20',['fechaParReto',['../guiao4_8c.html#af59d4b8e39339e699fc7b8357ae59b73',1,'fechaParReto(STACK *s, char *token, int flag):&#160;guiao4.c'],['../stack_8h.html#af59d4b8e39339e699fc7b8357ae59b73',1,'fechaParReto(STACK *s, char *token, int flag):&#160;guiao4.c']]]
+  ['fechaarray_23',['fechaArray',['../guiao4_8c.html#aa59f50180e5ad712f1df62751c5f3598',1,'fechaArray(STACK *s, char *token, int flagArrays):&#160;guiao4.c'],['../stack_8h.html#aa59f50180e5ad712f1df62751c5f3598',1,'fechaArray(STACK *s, char *token, int flagArrays):&#160;guiao4.c']]]
 ];
