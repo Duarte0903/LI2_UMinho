@@ -67,6 +67,42 @@ int convertParaInt (STACK *s, char *token)
     return r;
 } 
 
+//! COnverte o topo da stack para DOUBLE
+int convertParaDouble (STACK *s, char *token)
+{
+    int r = 0;
+
+    if (strcmp (token, "f") == 0)
+    {
+        DATA x = pop (s);
+
+        if (x.tipo == LONG)
+        {
+            push (s, cria_Double (x.elem.l));
+            r = 1;
+        }
+
+        if (x.tipo == DOUBLE)
+        {
+            push (s, x);
+            r = 1;
+        }
+
+        if (x.tipo == CHAR)
+        {
+            push (s, cria_Double (x.elem.c));
+            r = 1;
+        }
+
+        if (x.tipo == STRING)
+        {
+            push (s, cria_Double (atof (x.elem.str)));
+            r = 1;
+        }
+    }
+    return r;
+}
+
 //! Converte o topo da stack para STRING
 int convertParaString (STACK *s, char *token)
 {

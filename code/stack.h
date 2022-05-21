@@ -99,3 +99,4 @@ int criaString (STACK *s, char *token);
 int range (STACK *s, char *token);
 int abreArray (STACK *s, char *token, int flagArrays);
 int fechaArray (STACK *s, char *token, int flagArrays);
+int convertParaDouble (STACK *s, char *token);

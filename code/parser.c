@@ -21,7 +21,7 @@ int handleG1 (STACK *s, char *token)
 int handleG2 (STACK *s, char *token)
 {
     int r = 0;
-    if (convertParaString (s, token) || convertParaInt (s, token) || lerLinha (s, token) || intParaChar (s, token) || troca2Topo (s, token) || copiaNesimo (s, token) || popG2 (s, token) || duplicar (s, token) || rodar3 (s, token)) r = 1;
+    if (convertParaDouble (s, token) || convertParaString (s, token) || convertParaInt (s, token) || lerLinha (s, token) || intParaChar (s, token) || troca2Topo (s, token) || copiaNesimo (s, token) || popG2 (s, token) || duplicar (s, token) || rodar3 (s, token)) r = 1;
     return r;
 }
 
@@ -78,8 +78,8 @@ void parser (STACK *s, char *token)
         {
             if ((strstr ("+-*/()%#&|^~e&e|_;\\@$clifts<>=!?e<e>,[]S{}", token) != NULL)) mainHandle (s, token, flagArrays);       // O TOKEN é igual a um dos operadores
             if (strchr (token, 34) != NULL) criaString (s, token);                                                                // Se o CHAR " ocorre no TOKEN cria uma STRING
-            if (capLtr (token) == 0) pushVal (s, token, val);                                                                     // Se o TOKEN for letra maiuscula da push ao valor associado
-            if (dots (token) == 0) omissao (s, token, val);                                                                       // Se ocorrem os dois pontos seguidos por letra maiuscula, altera o valor associado a letra
+            if (capLtr (token) == 1) pushVal (s, token, val);                                                                     // Se o TOKEN for letra maiuscula da push ao valor associado
+            if (dots (token) == 1) omissao (s, token, val);                                                                       // Se ocorrem os dois pontos seguidos por letra maiuscula, altera o valor associado a letra
         }
     }
 } 

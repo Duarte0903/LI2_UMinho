@@ -132,9 +132,7 @@ int range (STACK *s, char *token)
         {
             long range = strlen (x.elem.str);
 
-            DATA p = cria_Long (range);
-
-            push (s, p);
+            push (s, cria_Long (range));
 
             r = 1;
         }

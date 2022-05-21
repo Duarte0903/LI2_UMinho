@@ -14,8 +14,8 @@ int dots (char *token)
     char c = token[0];
     int r;
 
-    if (c == ':') r = 0;
-    else r = 1;
+    if (c == ':') r = 1;
+    else r = 0;
 
     return r;
 }
@@ -35,8 +35,8 @@ int capLtr (char *token)
     char c = token[0];
     int r;
 
-    if (c <= 90 && c >= 65) r = 0;
-    else r = 1;
+    if (c <= 90 && c >= 65) r = 1;
+    else r = 0;
 
     return r;
 }
@@ -255,27 +255,22 @@ int ouShortcut (STACK *s, char *token)
     {
         DATA x = pop (s);
         DATA y = pop (s);
-        if (y.elem.l == 0 && x.elem.l != 0)
+
+        if (x.elem.l != 0 && y.elem.l == 0)
         {
-            push (s, x); 
-            r = 1;
+            push (s, x);
+            r = 1; 
         }
 
-        if (x.elem.l == 0 && y.elem.l != 0) 
+        if (x.elem.l == 0 && y.elem.l != 0)
         {
-            push (s, y); 
-            r = 1;
+            push (s, y);
+            r = 1; 
         }
 
-        if (x.elem.l == 1 && y.elem.l != 0) 
+        else 
         {
-            push (s, cria_Long (1)); 
-            r = 1;
-        }
-
-        if (y.elem.l == 1 && x.elem.l != 0) 
-        {
-            push (s, cria_Long (1)); 
+            push (s, cria_Long (0));
             r = 1;
         }
     }
@@ -296,21 +291,15 @@ int eShortcut (STACK *s, char *token)
         DATA x = pop (s);
         DATA y = pop (s);
 
-        if (y.elem.l == 0 || x.elem.l == 0) 
+        if (x.elem.l != 0 && y.elem.l != 0)
+        {
+            push (s, x);
+            r = 1;
+        }
+
+        else 
         {
             push (s, cria_Long (0));
-            r = 1;
-        }
-
-        if (x.elem.l == 1) 
-        {
-            push (s, y); 
-            r = 1;
-        }
-
-        if (y.elem.l == 1) 
-        {
-            push (s, x); 
             r = 1;
         }
     }
