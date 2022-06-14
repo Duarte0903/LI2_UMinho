@@ -1,5 +1,8 @@
-Para compilar correr o comando: ./comp
+Projeto da disciplina de LI2 (LEI - UMINHO)
 
-Para criar o ficheiro zip correr o comando: zip -9r submissao.zip code 
+Estão ausentes várias funções dos guiões 4 e 5
 
-Atualizar documentacao: doxygen Doxyfile
+Para compilar correr o comando ./comp
+
+Para realizar operações correr o comando ./proj
+
